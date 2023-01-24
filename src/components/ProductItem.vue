@@ -9,13 +9,14 @@
 <img :src="item['image-thumb']" alt="">
 
   </div> -->
-  <div class="product">
+  <div class="product" @click="openModal(item)">
     <div class="product--img">
       <div :class="{ 'additional-info': true, 'justify-content-end': !item.discount }">
         <span v-if="item?.discount">{{ item.discount }}</span>
         <img src="/svg/heart.svg" alt="">
       </div>
       <img :src="item['image-thumb']" alt="">
+      <img class="eye" src="/svg/visible.svg" alt="">
     </div>
     <div class="product--info">
       <h5>{{ item.name }}</h5>
@@ -34,6 +35,10 @@ const props = defineProps({
   required: true,
   validator: () => item !== null
 })
+
+const openModal = (product) => {
+  console.log('selected Item: ', product)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -42,9 +47,30 @@ const props = defineProps({
   min-height: 400px;
   overflow: hidden;
 
+  :hover {
+    .eye {
+      opacity: 1;
+    }
+  }
+
   &--img {
     background-color: rgb(190, 190, 190);
     height: 300px;
+    position: relative;
+
+    .eye {
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 5;
+      width: 40px;
+      border: 1px solid #dfe3e3;
+      box-sizing: unset;
+      padding: 10px 20px;
+      background-color: #dfe3e3;
+      transition: all 0.2s;
+    }
 
     .additional-info {
       display: flex;
@@ -65,7 +91,7 @@ const props = defineProps({
       }
     }
 
-    >img {
+    >img:not(.eye) {
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -74,6 +100,7 @@ const props = defineProps({
       width: 100%;
       max-height: 250px;
     }
+
   }
 
   &--info {
@@ -117,5 +144,6 @@ const props = defineProps({
       }
     }
   }
+
 }
 </style>

@@ -13,10 +13,11 @@
             <router-link to="/mostview" tag="'li'">
                 Most View
             </router-link>
-            <select name="select_color" id="select_color">
+            <select @change="onChange($event)" name="select_color" id="select_color">
                 <option value="red">Red</option>
                 <option value="white">White</option>
                 <option value="blue">Blue</option>
+                <option value="grey">Grey</option>
                 <option selected>Filter by color</option>
             </select>
         </div>
@@ -26,6 +27,14 @@
 </template>
 
 <script setup>
+import { ref, provide } from 'vue';
+
+const select_color = ref(null);
+const onChange = (event) => {
+    select_color.value = event.target.value;
+}
+
+provide('color',select_color)
 </script>
 
 <style lang="scss" scoped>

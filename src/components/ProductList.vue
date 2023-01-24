@@ -15,8 +15,9 @@
 </template>
 
 <script setup>
-import { computed, toRefs, ref, watch, watchEffect } from 'vue';
+import { computed, toRefs, ref, inject } from 'vue';
 import ProductItem from './ProductItem.vue';
+const selectedColor = inject('color', null);
 const props = defineProps({
     products: Array,
     required:true
