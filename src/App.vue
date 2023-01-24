@@ -1,0 +1,19 @@
+<script setup>
+import TheHeaderVue from './components/UI/Header/TheHeader.vue';
+import TheCarousel from './components/TheCarousel.vue';
+import SomeText from './components/SomeText.vue';
+import TheCatalogue from './components/TheCatalogue.vue';
+
+</script>
+<template>
+  <TheHeaderVue/>
+  <TheCarousel/>
+  <SomeText/>
+  <TheCatalogue/>
+  <router-view></router-view>
+  </template>
+
+<style scoped lang="scss">
+@use "styles/style";
+@forward "styles/style" as list-*;
+</style>
