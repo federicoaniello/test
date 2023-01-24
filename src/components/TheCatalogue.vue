@@ -6,11 +6,15 @@
     </div>
     <div>
     <div class="tabs">
-      <router-link to="/">New Arrivals</router-link>  
-      <router-link to="/bestseller">Best Seller</router-link>  
-      <router-link to="/mostview">Most View</router-link>  
-      <router-view></router-view>
-    </div>
+      <router-link to="/" tag="button">New Arrivals</router-link>  
+      <router-link to="/bestseller" tag="'li'">
+            Best Seller
+    </router-link>  
+      <router-link to="/mostview" tag="'li'">
+            Most View
+    </router-link>  
+</div>
+<router-view></router-view>
     </div>
 
 </template>
@@ -35,6 +39,20 @@
             margin: 0 auto;
 
         }
+    }
+}
+.tabs{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+
+    .router-link-active{
+        font-size: 24px;
+        color: black;
+        text-decoration: none;
+    }
+    >div{
+
     }
 }
 </style>

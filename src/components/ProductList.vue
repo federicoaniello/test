@@ -4,8 +4,8 @@
             <ProductItem :item="item" />
         </template>
     </section>
-    <div class="text-center">
-        <button class="mt-3 show-more" v-on:click="showMore">Show More</button>
+    <div v-if="products" class="text-center">
+        <button class="mt-3 show-more" @click="showMore">Show More</button>
     </div>
 </template>
 
@@ -13,7 +13,7 @@
 import { computed, toRefs, ref } from 'vue';
 import ProductItem from './ProductItem.vue';
 const props = defineProps({
-    products: Object,
+    products: Array,
 });
 const { products }  = props; 
 let truncateMax = 4;
@@ -24,7 +24,13 @@ const showMore = () => {
 }
 
 const truncatedProducts = computed(() => {
-    return products?.slice(0,truncateMax) || null
+    let prdcts = products;
+    if(!prdcts) return [];
+
+    prdcts = prdcts?.slice(0,truncateMax);
+    console.log(prdcts);
+    debugger
+    return prdcts?.slice(0,truncateMax)
 })
 </script>
 
