@@ -1,37 +1,42 @@
 <template>
     <section class="grid container">
-        <template v-for="(item, index) in truncatedProducts" :key="index">
+        <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem :item="item" />
         </template>
     </section>
     <div v-if="products" class="text-center">
-        <button class="mt-3 show-more" @click="showMore">Show More</button>
+        <button class="mt-3 show-more" @click="showMore()">Show More {{ isMaxValueHigherThanNumberOfItems ? 'giu' : 'su' }}</button>
     </div>
 </template>
 
 <script setup>
-import { computed, toRefs, ref } from 'vue';
+import { computed, toRefs, ref, watch, watchEffect } from 'vue';
 import ProductItem from './ProductItem.vue';
 const props = defineProps({
     products: Array,
+    required:true
 });
-const { products }  = props; 
-let truncateMax = 4;
+const { products } = toRefs(props);
+let truncateMax = ref(4);
 
 
 const showMore = () => {
-    truncateMax += 4;
+    truncateMax.value = truncateMax.value + 4;
 }
 
-const truncatedProducts = computed(() => {
-    let prdcts = products;
-    if(!prdcts) return [];
+// watch(truncateMax, (prev, n) => {
+//     //products.value = products.value.slice(0, n)
+// })
 
-    prdcts = prdcts?.slice(0,truncateMax);
-    console.log(prdcts);
-    debugger
-    return prdcts?.slice(0,truncateMax)
+const filteredProducts = computed(() => {
+    return products?.value?.slice(0, truncateMax.value) || []
 })
+
+const isMaxValueHigherThanNumberOfItems = computed(() => {
+    return products?.value?.length > truncateMax.value
+})
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -44,7 +49,8 @@ const truncatedProducts = computed(() => {
         grid-template-columns: 1fr 1fr;
     }
 }
-.show-more{
+
+.show-more {
     padding: 10px 20px;
     border: 2px solid black;
     font-size: 18px;
