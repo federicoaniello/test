@@ -1,6 +1,6 @@
 [
   {
-    "image-thumb": "/assets/images/thumbs/product-01.jpg",
+    "image-thumb": "/thumbs/product-01.jpg",
     "image-preview": "http://img.edilportale.com/product-thumbs/b_SLICE-DIMPLE-POP-KUBIKOFF-236027-rel80a43018.jpg",
 		"name": "KUBIKOFF",
 		"description": "CHAISE ANGEL",
@@ -14,7 +14,7 @@
 		]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-02.jpg",
+  "image-thumb": "/thumbs/product-02.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_MAESTRO-Officine-Tamborrino-199360-relce5a72c8.jpg",
   "name": "Officine Tamborrino",
   "description": "Sedia imbottita con braccioli",
@@ -28,7 +28,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-03.jpg",
+  "image-thumb": "/thumbs/product-03.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_a-sp01-262651-reld5a2f806.jpg",
   "name": "SP01",
   "description": "Poltrona in tessuto",
@@ -40,7 +40,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-04.jpg",
+  "image-thumb": "/thumbs/product-04.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_BACK-ME-UP-LOUNGE-Montis-293334-rel8f585bc0.jpg",
   "name": "Montis",
   "description": "BACK ME UP LOUNGE",
@@ -52,7 +52,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-05.jpg",
+  "image-thumb": "/thumbs/product-05.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_TA-Er-Black-Poltroncina-KUBIKOFF-238877-rel98485b7.jpg",
   "name": "KUBIKOFF",
   "description": "Poltroncina",
@@ -66,7 +66,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-06.jpg",
+"image-thumb": "/thumbs/product-06.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_loft-366-concept-s-c-286960-relb85ab85e.jpg",
 "name": "366 Concept s.c.",
 "description": "Poltroncina",
@@ -80,7 +80,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-07.jpg",
+"image-thumb": "/thumbs/product-07.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-126037-rel3e1aeb4d3ca04d43aa43a257d1eaf48a.jpg",
 "name": "Mara",
 "description": "Romeo",
@@ -93,7 +93,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-08.jpg",
+"image-thumb": "/thumbs/product-08.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-139526-reld49b21825ad14ceea7d6fc89fb8c230e.jpg",
 "name": "LOEHR",
 "description": "Tavolo in legno",
@@ -105,7 +105,7 @@
 ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-09.jpg",
+  "image-thumb": "/thumbs/product-09.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_HIBISCUS-L-Bazartherapy-207749-rele311b388.jpg",
   "name": "Bazartherapy",
   "description": "HIBISCUS L",
@@ -117,7 +117,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-10.jpg",
+"image-thumb": "/thumbs/product-10.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-139496-relc058ca48a8bf4149b3bfe5769596651c.jpg",
 "name": "LOEHR",
 "description": "Tavolino rotondo",
@@ -128,7 +128,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-11.jpg",
+"image-thumb": "/thumbs/product-11.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_MOBIUSH-Tabanda-235981-rel773ec704.jpg",
 "name": "Tabanda",
 "description": "MOBIUSH",
@@ -140,7 +140,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-12.jpg",
+"image-thumb": "/thumbs/product-12.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_c16-coffee-table-tolix-steel-design-239215-rela554f0f5.jpg",
 "name": "Tolix Steel Design",
 "description": "Tavolino",

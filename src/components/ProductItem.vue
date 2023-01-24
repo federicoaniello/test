@@ -15,13 +15,14 @@
         <span v-if="item?.discount">{{ item.discount }}</span>
         <img src="/svg/heart.svg" alt="">
       </div>
+      <img :src="item['image-thumb']" alt="">
     </div>
     <div class="product--info">
       <h5>{{ item.name }}</h5>
       <h6>{{ item.description }}</h6>
       <div class="prices">
-       <span class="old-price" v-if="item?.['old-price']">{{ item['old-price'] }}</span>
-       <span>{{ item.price }}</span>
+        <span class="old-price" v-if="item?.['old-price']">{{ item['old-price'] }}</span>
+        <span>{{ item.price }}</span>
       </div>
     </div>
   </div>
@@ -39,6 +40,7 @@ const props = defineProps({
 .product {
   position: relative;
   min-height: 400px;
+  overflow: hidden;
 
   &--img {
     background-color: rgb(190, 190, 190);
@@ -50,6 +52,8 @@ const props = defineProps({
       justify-content: space-between;
       padding: 10px;
       height: 45px;
+      position: relative;
+      z-index: 2;
 
       >span {
         background-color: red;
@@ -60,6 +64,16 @@ const props = defineProps({
 
       }
     }
+
+    >img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-height: 250px;
+    }
   }
 
   &--info {
@@ -68,29 +82,34 @@ const props = defineProps({
     align-items: center;
     justify-content: center;
     padding: 10px;
-    h5{
+    text-align: center;
+
+    h5 {
       text-transform: uppercase;
       font-weight: bold;
       font-size: 18px;
     }
-    h6{
+
+    h6 {
       text-transform: uppercase;
       font-weight: normal;
       font-size: 14px;
-      text-align: center;
     }
-    .prices{
+
+    .prices {
       display: flex;
       flex-direction: row;
       justify-content: center;
       gap: 5px;
-      .old-price{
+
+      .old-price {
         text-decoration: line-through;
         color: gainsboro;
         font-weight: 200;
         font-size: 12px;
       }
-      span{
+
+      span {
         text-decoration: none;
         color: black;
         font-weight: 300;

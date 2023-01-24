@@ -1,6 +1,6 @@
 [
   {
-    "image-thumb": "/assets/images/thumbs/product-13.jpg",
+    "image-thumb": "/thumbs/product-13.jpg",
     "image-preview": "http://img.edilportale.com/product-thumbs/b_06-Vitra-26008-rel2dd09604.png",
 		"name": "Vitra",
 		"description": "Chaise longue",
@@ -12,7 +12,7 @@
 		]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-14.jpg",
+  "image-thumb": "/thumbs/product-14.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_relax-azea-200510-relc6355420.jpg",
   "name": "AZEA",
   "description": "SDormeuse capitonné in tessuto",
@@ -25,7 +25,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-15.jpg",
+  "image-thumb": "/thumbs/product-15.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_madonna-day-bed-norr11-87772-relcc6d66c0.jpg",
   "name": "NORR11",
   "description": "Dormeuse imbottita in tessuto",
@@ -36,7 +36,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-16.jpg",
+  "image-thumb": "/thumbs/product-16.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_METAMORFOSI-Oval-washbasin-Olympia-Ceramica-182735-rel9091b407.jpeg",
   "name": "Olympia Ceramica",
   "description": "Lavabo da appoggio ovale",
@@ -50,7 +50,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-17.jpg",
+  "image-thumb": "/thumbs/product-17.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_ergo-40-cm-galassia-60706-rel666baeec.jpg",
   "name": "GALASSIA",
   "description": "Lavabo da appoggio in ceramica",
@@ -61,7 +61,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-18.jpg",
+"image-thumb": "/thumbs/product-18.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_voido-magis-213671-reld1eead7.jpg",
 "name": "Magis",
 "description": "Poltrona a dondolo",
@@ -72,7 +72,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-19.jpg",
+"image-thumb": "/thumbs/product-19.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-145015-rel7a26488a68f94e7a9820f039e5ffea6d.jpg",
 "name": "Sérénité Luxury Monaco",
 "description": "Poltrona da giardino in Sunbrella®",
@@ -83,7 +83,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-20.jpg",
+"image-thumb": "/thumbs/product-20.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-115505-relb89501f083194fd198ee10ffb030b883.jpg",
 "name": "Fatboy Italia",
 "description": "Poltrona a sacco in acrilico",
@@ -94,7 +94,7 @@
 ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-21.jpg",
+  "image-thumb": "/thumbs/product-21.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_magis-proust-magis-24966-rela6847530.jpg",
   "name": "Magis",
   "description": "Poltrona da giardino",
@@ -105,7 +105,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-22.jpg",
+"image-thumb": "/thumbs/product-22.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_JETLAG-CHAIR-PLUST-Collection-by-Euro-3-Plast-248537-relcf2cb7.jpg",
 "name": "Plust",
 "description": "Poltrona modulare",
@@ -118,7 +118,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-23.jpg",
+"image-thumb": "/thumbs/product-23.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_FUTURA-SP-Vetreria-Vistosi-241800-rel5b5d30c0.jpg",
 "name": "Vetreria Vistosi",
 "description": "Lampada a sospensione",
@@ -133,7 +133,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-24.jpg",
+"image-thumb": "/thumbs/product-24.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_bright-ballerina-nordic-tales-275242-rel4d4710a0.jpg",
 "name": "Nordic Tales",
 "description": "Lampada a sospensione",

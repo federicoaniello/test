@@ -1,6 +1,6 @@
 [
   {
-    "image-thumb": "/assets/images/thumbs/product-25.jpg",
+    "image-thumb": "/thumbs/product-25.jpg",
     "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-191560-relf320bc0086964ed584dade8af3812bfd.jpg",
 		"name": "Tacchini",
 		"description": "Poltrona imbottita",
@@ -11,7 +11,7 @@
 		]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-26.jpg",
+  "image-thumb": "/thumbs/product-26.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-143991-rela8285f465ec94a7ba12cd756a326af97.jpg",
   "name": "Fatboy Italia",
   "description": "Poltrona gonfiabile in PVC",
@@ -23,7 +23,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-27.jpg",
+  "image-thumb": "/thumbs/product-27.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_x-2big-alma-design-128279-rel15eef492.jpg",
   "name": "ALMA DESIGN",
   "description": "Poltrona imbottita in frassino",
@@ -37,7 +37,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-28.jpg",
+  "image-thumb": "/thumbs/product-28.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-95800-prel09887f469c464fa88861608cafc53c3f.jpg",
   "name": "Cantori",
   "description": "Comodino bombato in legno",
@@ -48,7 +48,7 @@
   ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-29.jpg",
+  "image-thumb": "/thumbs/product-29.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_RELAXER-ONE-CHAIR-NORR11-138436-relbc637e8c.jpg",
   "name": "NORR11",
   "description": "Poltrona a dondolo imbottita",
@@ -59,7 +59,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-30.jpg",
+"image-thumb": "/thumbs/product-30.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-86656-relefd60bb1fc5c470e8f516c1a2d0529c5.jpg",
 "name": "DOMITALIA",
 "description": "Sgabello alto in sughero",
@@ -71,7 +71,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-31.jpg",
+"image-thumb": "/thumbs/product-31.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_prodotti-122958-rel8178b3f73e4f43d5bc4a37e785b5f446.jpg",
 "name": "Lonc",
 "description": "Sgabello da giardino",
@@ -83,7 +83,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-32.jpg",
+"image-thumb": "/thumbs/product-32.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_CONCRETE-SEAT-Fatboy-Italia-197645-relff84f208.jpg",
 "name": "Fatboy Italia",
 "description": "Sgabello / tavolino in polietilene",
@@ -94,7 +94,7 @@
 ]
 },
 {
-  "image-thumb": "/assets/images/thumbs/product-33.jpg",
+  "image-thumb": "/thumbs/product-33.jpg",
   "image-preview": "http://img.edilportale.com/product-thumbs/b_SAINT-AMBROSE-TuttiSanti-255161-reld6454cab.jpg",
   "name": "TuttiSanti",
   "description": "Poster in carta patinata",
@@ -109,7 +109,7 @@
   ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-34.jpg",
+"image-thumb": "/thumbs/product-34.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_decorative-painting-kubikoff-237038-rel4dafcdd.jpg",
 "name": "KUBIKOFF",
 "description": "Stampa su tela",
@@ -124,7 +124,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-35.jpg",
+"image-thumb": "/thumbs/product-35.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_GLAM-ROCK-Reflections-Copenhagen-270635-rela643228.jpg",
 "name": "Reflections",
 "description": "Tavolino di servizio quadrato in vetro",
@@ -135,7 +135,7 @@
 ]
 },
 {
-"image-thumb": "/assets/images/thumbs/product-36.jpg",
+"image-thumb": "/thumbs/product-36.jpg",
 "image-preview": "http://img.edilportale.com/product-thumbs/b_CUBE-TABLE-MIRROR-Kristina-Dam-Studio-252851-relbbb22db6.jpg",
 "name": "Kristina Dam Studio",
 "description": "Tavolino",
