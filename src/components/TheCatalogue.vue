@@ -1,10 +1,10 @@
 
 
 <template>
-    <div class="container">
+    <div class="container-md">
         <h3 class="title--purchase text-center">Purchase Online</h3>
     </div>
-    <div class="container">
+    <div class="container-md">
         <div class="tabs mb-5">
             <router-link to="/" tag="button">New Arrivals</router-link>
             <router-link to="/bestseller" tag="'li'">
@@ -62,7 +62,9 @@ provide('color',select_color)
     gap: 5px;
     justify-content: center;
     position: relative;
-
+    @media (max-width:767px) {
+        flex-wrap: wrap;
+    }
     select {
         right: 0;
         border: 1px solid black;

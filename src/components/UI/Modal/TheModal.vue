@@ -1,11 +1,10 @@
 <template>
-<dialog open="true">
+    <div>
 
-</dialog>
+    </div>
 </template>
 
 <script setup>
-  
 </script>
 
 <style lang="scss" scoped>
