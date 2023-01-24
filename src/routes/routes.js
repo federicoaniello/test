@@ -9,17 +9,22 @@ export const routes = createRouter({
     {
       path: '/',
       name: 'new_arrivals',
-      component: NewArrivals
+      component: NewArrivals,
+      props:true
     },
     {
         path: '/bestseller',
         name: 'best_seller',
-        component: BestSeller
+        component: BestSeller,
+        props:true
+
       },
       {
         path: '/mostview',
         name: 'most_view',
-        component: Mostview
+        component: Mostview,
+        props:true
+
       }
   ]
 })

@@ -1,20 +1,26 @@
 
 
 <template>
-    <div>
+    <div class="container">
         <h3 class="title--purchase text-center">Purchase Online</h3>
     </div>
-    <div>
-    <div class="tabs">
-      <router-link to="/" tag="button">New Arrivals</router-link>  
-      <router-link to="/bestseller" tag="'li'">
-            Best Seller
-    </router-link>  
-      <router-link to="/mostview" tag="'li'">
-            Most View
-    </router-link>  
-</div>
-<router-view></router-view>
+    <div class="container">
+        <div class="tabs mb-5">
+            <router-link to="/" tag="button">New Arrivals</router-link>
+            <router-link to="/bestseller" tag="'li'">
+                Best Seller
+            </router-link>
+            <router-link to="/mostview" tag="'li'">
+                Most View
+            </router-link>
+            <select name="select_color" id="select_color">
+                <option value="red">Red</option>
+                <option value="white">White</option>
+                <option value="blue">Blue</option>
+                <option selected>Filter by color</option>
+            </select>
+        </div>
+        <router-view :selected-color="select_color"></router-view>
     </div>
 
 </template>
@@ -41,18 +47,27 @@
         }
     }
 }
-.tabs{
+
+.tabs {
     display: flex;
     gap: 5px;
     justify-content: center;
+    position: relative;
 
-    .router-link-active{
+    select {
+        right: 0;
+        border: 1px solid black;
+        background-color: white;
+        padding: 10px 20px;
+        position: absolute;
+    }
+
+    .router-link-active {
         font-size: 24px;
         color: black;
         text-decoration: none;
     }
-    >div{
 
-    }
+    >div {}
 }
 </style>

@@ -1,11 +1,16 @@
 <template>
-    <section class="grid container">
+    <section class="row filter-container">
+        <div class="col-12">
+            
+        </div>
+    </section>
+    <section class="grid">
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem :item="item" />
         </template>
     </section>
     <div v-if="products" class="text-center">
-        <button class="mt-3 show-more" @click="showMore()">Show More {{ isMaxValueHigherThanNumberOfItems ? 'giu' : 'su' }}</button>
+        <button class="mt-3 show-more" @click="showMore()">Show More {{ isMaxValueHigherThanNumberOfItems ? 'DOWN' : 'UP' }}</button>
     </div>
 </template>
 
@@ -21,6 +26,10 @@ let truncateMax = ref(4);
 
 
 const showMore = () => {
+    if(!isMaxValueHigherThanNumberOfItems.value){
+        truncateMax.value = 4;
+        return;
+    }
     truncateMax.value = truncateMax.value + 4;
 }
 
@@ -55,5 +64,9 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
     border: 2px solid black;
     font-size: 18px;
     margin: 0 auto;
+    &::after{
+        content: '';
+        background: url('');
+    }
 }
 </style>
