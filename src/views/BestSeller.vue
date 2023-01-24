@@ -1,18 +1,15 @@
 <template>
-    <template v-for="(item, index) in JsonData" :key="index">
-        <ProductItem :item="item"/>
-    </template>
+    <ProductList :products="jsonData"/>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import ProductItem from '../components/ProductItem.vue';
+import ProductList from '../components/ProductList.vue';
 import useDownload from '../hooks/useDownload';
 const { download } = useDownload();
-
-const JsonData = ref(null);
+const jsonData = ref(null);
 onMounted(async () => {
-   JsonData.value = await download("/data/best_seller.json");
+   jsonData.value = await download("/data/best_seller.json");
 })
 </script>
 

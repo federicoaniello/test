@@ -10,7 +10,6 @@ import TheCatalogue from './components/TheCatalogue.vue';
   <TheCarousel/>
   <SomeText/>
   <TheCatalogue/>
-  <router-view></router-view>
   </template>
 
 <style scoped lang="scss">

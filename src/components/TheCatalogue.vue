@@ -9,7 +9,7 @@
       <router-link to="/">New Arrivals</router-link>  
       <router-link to="/bestseller">Best Seller</router-link>  
       <router-link to="/mostview">Most View</router-link>  
-
+      <router-view></router-view>
     </div>
     </div>
 
