@@ -1,22 +1,22 @@
 <template>
     <TheModal @close="isModalShown = !isModalShown" v-if="isModalShown">
-          <template v-slot:body>
+          <template #body>
             {{ productModalChosen }}
           </template>
-          <template v-slot:image>
+          <template #image>
             <img :src="productModalChosen['image-preview']" alt="">
           </template>
-          <template v-slot:info>
-            <h1>{{productModalChosen.name}}</h1>
-            <h3 class="mb-4">{{productModalChosen.description}}</h3>
-            <button @click="goTo(productModalChosen.link)" class="add-to-cart">Add To Cart</button>
-            <div class="prices">
-                <span v-if="productModalChosen['old-price']" class="old-price">{{ productModalChosen['old-price'] }}</span>
-                <div class="d-flex justify-content-center">
-                    <span class="actual-price">{{ productModalChosen.price }}</span>
-                    <span v-if="productModalChosen.discount" class="discount">{{ productModalChosen.discount }}</span>
+          <template #info>
+            <h1>Officine Tamborino</h1>
+            <h3 class="mb-5">sottotitolo con braciola</h3>
+            <div class="prices mb-5">
+                <span class="old-price">oldPrice</span>
+                <div class="d-flex justify-content-start align-items-center">
+                    <span class="actual-price">price</span>
+                    <span class="discount">discount</span>
                 </div>
             </div>
+            <button class="add-to-cart">Add To Cart</button>
           </template>
     </TheModal>
     <section class="row filter-container">

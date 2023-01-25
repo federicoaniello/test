@@ -9,7 +9,7 @@ const close = () => {
     <transition name="modal-fade">
         <div class="modal-backdrop">
             <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-                <header @click="close">
+                <header id="modalheader" @click="close">
                     <img :src="'/svg/close.svg'" alt="">
                 </header>
                 <section class="modal-body" id="modalDescription">
@@ -21,11 +21,11 @@ const close = () => {
                     <div class="info">
                         <slot name="info">
                             <h1>Officine Tamborino</h1>
-                            <h3 class="mb-4">sottotitolo con braciola</h3>
+                            <h3 class="mb-5">sottotitolo con braciola</h3>
                             <button class="add-to-cart">Add To Cart</button>
                             <div class="prices">
                                 <span class="old-price">oldPrice</span>
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-start align-items-center">
                                     <span class="actual-price">price</span>
                                     <span class="discount">discount</span>
                                 </div>
@@ -38,7 +38,7 @@ const close = () => {
     </transition>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -51,7 +51,7 @@ const close = () => {
     align-items: center;
 }
 
-header {
+#modalheader {
     background-color: #eeeeee;
     position: absolute;
     right: 0;
@@ -62,7 +62,7 @@ header {
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 30px;
+        width: 20px;
         transform: translate(-50%, -50%);
     }
 }
@@ -74,15 +74,39 @@ header {
     overflow-x: auto;
     display: flex;
     flex-direction: column;
+
+    .discount {
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        padding: 2px 5px;
+        height: 23px;
+
+
+    }
+
+    .old-price {
+        text-decoration: line-through;
+        color: gainsboro;
+        font-weight: 200;
+    }
+
+    .actual-price {
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 8px;
+    }
 }
 
 .modal-header,
-.info{
-    h1{
+.info {
+    h1 {
         font-weight: 400;
-        font-size: 26px;
+        font-size: 32px;
     }
-    h2{
+
+    h3 {
         font-weight: 300;
         font-size: 20px;
     }
@@ -101,14 +125,22 @@ header {
     display: flex;
     align-items: center;
 }
-.add-to-cart{
-    background-color: red;
-    padding: 30px;
-    display: flex;
-    gap: 5px;
-    color: white;
-    &::before{
+
+.add-to-cart {
+    background-color: #ff4040;
+padding: 14px 35px;
+display: flex;
+gap: 10px;
+color: white;
+border-radius: 4px;
+border: none;
+align-items: center;
+width: 100%;
+justify-content: center;
+
+    &::before {
         content: url('/svg/shopping-cart.svg');
+        width: 18px;
     }
 }
 
