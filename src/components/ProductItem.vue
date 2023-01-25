@@ -26,9 +26,11 @@ const props = defineProps({
     required: true
   }
 })
+const emits = defineEmits(['onProductChosen'])
 
 const openModal = (product) => {
   console.log('selected Item: ', product)
+  emits('onProductChosen',product);
 }
 </script>
 
