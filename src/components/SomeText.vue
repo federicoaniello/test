@@ -15,7 +15,7 @@
                     praesentium unde voluptatibus quia voluptates sint enim.</article>
             </div>
         </div>
-        <div class="subtitle my-3"><strong>Categories</strong></div>
+        <div class="subtitle my-4"><strong>Categories</strong></div>
         <div class="row">
             <div class="col-12 col-md-6">
                 <ul>
@@ -54,7 +54,7 @@
 .main-title{
     font-size: 32px;
     @media (max-width:767px) {
-        font-size: 18px;
+        font-size: 24px;
     }
 }
 section {

@@ -44,7 +44,8 @@ const openModal = (product) => {
 <style lang="scss" scoped>
 .product {
   position: relative;
-  min-height: 400px;
+  min-height: 320px;
+  max-width: 270px;
   @media (max-width:767px) {
     min-height: 300px;
   }
@@ -58,7 +59,7 @@ const openModal = (product) => {
 
   &--img {
     background-color: rgb(190, 190, 190);
-    height: 300px;
+    height: 320px;
     position: relative;
     @media (max-width:767px) {
     height: 220px;
@@ -79,10 +80,10 @@ const openModal = (product) => {
 
     .additional-info {
       display: flex;
-      top: 0;
+      top: 10px;
       justify-content: space-between;
-      padding: 10px;
-      height: 45px;
+      padding: 10px 20px;
+      height: 44px;
       position: relative;
       z-index: 2;
 
@@ -100,9 +101,8 @@ const openModal = (product) => {
       position: absolute;
       bottom: 0;
       left: 50%;
-      top: 40%;
+      top: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
       max-height: 250px;
     }
 
@@ -113,7 +113,7 @@ const openModal = (product) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
 
     h5 {

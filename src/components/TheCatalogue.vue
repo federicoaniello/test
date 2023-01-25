@@ -15,32 +15,28 @@
                     Most View
                 </router-link>
             </div>
-            <select @change="onChange($event)" name="select_color" id="select_color">
-                <option value="red">Red</option>
-                <option value="white">White</option>
-                <option value="blue">Blue</option>
-                <option value="grey">Grey</option>
-                <option value="purple">Purple</option>
-                <option value="brown">Brown</option>
-                <option value="orange">Orange</option>
-                <option value="black">Black</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
+            <select v-model="select_color" @change="onChange($event)" name="select_color" id="select_color">
                 <option selected value="">Filter by color</option>
+                <option v-for="(color, index) in colors" :key="index" :value="color">{{ color[0].toUpperCase() + color.substring(1) }}</option>
             </select>
         </div>
-        <router-view :selected-color="select_color"></router-view>
+        <router-view :selected-color="select_color" @onColorsGathered="onColorsReceived($event)"></router-view>
     </div>
 
 </template>
 
 <script setup>
-import { ref, provide } from 'vue';
+import { ref } from 'vue';
 
 const select_color = ref(null);
-
+const colors = ref([]);
 const onChange = (event) => {
     select_color.value = event.target.value;
+}
+
+const onColorsReceived = (cl) => {
+    colors.value = cl;
+    select_color.value = '';
 }
 </script>
 
@@ -69,21 +65,25 @@ const onChange = (event) => {
     gap: 5px;
     justify-content: center;
     position: relative;
+
     @media (max-width:767px) {
         flex-direction: column;
     }
-    &--container{
+
+    &--container {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
     }
+
     select {
         right: 0;
         border: 1px solid black;
         background-color: white;
         padding: 10px 20px;
         position: absolute;
+
         @media (max-width:767px) {
             position: static;
         }

@@ -9,11 +9,11 @@
             <ProductItem :item="item" />
         </template>
     </section>
-    <div v-if="products" class="text-center">
-        <button class="mt-3 show-more" @click="showMore()">Show More {{
-            isMaxValueHigherThanNumberOfItems? 'DOWN':
-                'UP'
-        }}</button>
+    <div v-if="products" class="text-center mb-5">
+        <button class="mt-5 show-more d-flex align-items-center justify-content-between" @click="showMore()">View more
+            <img class="rotate" :class="{'upside-down':!isMaxValueHigherThanNumberOfItems}"
+                :src="'/svg/right-arrow.svg'" alt="" />
+        </button>
     </div>
 </template>
 
@@ -60,7 +60,7 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    row-gap: 40px;
 
     @media (max-width:767px) {
         grid-template-columns: 1fr 1fr;
@@ -68,14 +68,30 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
 }
 
 .show-more {
-    padding: 10px 20px;
-    border: 2px solid black;
-    font-size: 18px;
+    padding: 12px 30px;
+    border: 1px solid black;
+    font-size: 15px;
     margin: 0 auto;
+    margin-top: 0px;
+    background: white;
+    font-weight: bold;
 
     &::after {
         content: '';
         background: url('');
     }
+
+
+}
+
+.rotate {
+    transform: rotate(90deg);
+    width: 12px;
+    margin-left: 14px;
+    filter: opacity(100%) brightness(0%);
+}
+
+.upside-down {
+    transform: rotate(-90deg);
 }
 </style>

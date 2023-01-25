@@ -1,6 +1,6 @@
 <template>
     <header class="container justify-content-center justify-content-md-between">
-        <h1>Archiproducts</h1>
+        <img :src="'/images/logo_archiproducts.png'" alt="">
     </header>
 </template>
 
@@ -12,8 +12,8 @@ header {
     height: 70px;
     display: flex;
     align-items: center;
-    h1 {
-
-    }
+   img{
+    width: 180px;
+   }
 }
 </style>

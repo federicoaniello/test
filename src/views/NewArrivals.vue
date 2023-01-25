@@ -10,12 +10,16 @@ const jsonData = ref(null);
 const props = defineProps({
   selectedColor: { type: String },
 });
+const emits = defineEmits(['onColorsGathered'])
 
+const colors = ref([]);
 const { selectedColor } = toRefs(props);
-const { download } = useDownload();
+const { download, colorUtility } = useDownload();
 onMounted(async () => {
     console.log("STRING = ",selectedColor.value)
    jsonData.value = await download("/data/new_arrivals.json");
+   colors.value = colorUtility(jsonData);
+   emits('onColorsGathered',colors.value);
 })
 
 watch(selectedColor, (neww,old) => {

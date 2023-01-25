@@ -19,7 +19,7 @@
                     <img :src="'./public/carousel/carousel-01.jpg'" alt="">
                     <div class="carousel--wrapper">
                         <div><strong>Extending</strong> tables</div>
-                        <div>See all --></div>
+                        <div class="second-div">See all <span><img class="ml-3" :src="'/svg/right-arrow.svg'" alt=""></span></div>
                     </div>
                 </div>
             </section>
@@ -50,8 +50,6 @@ img {
     @media (min-width:768px) {
         width: 100%;
     }
-
-    .arrow {}
 }
 
 section {
@@ -63,13 +61,21 @@ section {
         align-items: center;
         flex-direction: column;
 
+        .second-div{
+            font-size: 15px;
+            font-weight: lighter;
+            img{
+                width: 12px;
+            }
+        }
 
 
         .carousel--wrapper {
             position: absolute;
             color: white;
-            font-size: 24px;
+            font-size: 36px;
             text-align: center;
+            font-weight: lighter;
 
             @media (max-width:767px) {
                 font-size: 34px;
