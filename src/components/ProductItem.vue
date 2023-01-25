@@ -11,19 +11,19 @@
   </div> -->
   <div class="product" @click="openModal(item)">
     <div class="product--img">
-      <div :class="{ 'additional-info': true, 'justify-content-end': !item.discount }">
-        <span v-if="item?.discount">{{ item.discount }}</span>
+      <div :class="{ 'additional-info': true, 'justify-content-end': !item?.discount }">
+        <span v-if="item?.discount">{{ item?.discount }}</span>
         <img src="/svg/heart.svg" alt="">
       </div>
-      <img :src="item['image-thumb']" alt="">
+      <img :src="item?.['image-thumb']" alt="">
       <img class="eye" src="/svg/visible.svg" alt="">
     </div>
     <div class="product--info">
-      <h5>{{ item.name }}</h5>
-      <h6>{{ item.description }}</h6>
+      <h5>{{ item?.name }}</h5>
+      <h6>{{ item?.description }}</h6>
       <div class="prices">
-        <span class="old-price" v-if="item?.['old-price']">{{ item['old-price'] }}</span>
-        <span>{{ item.price }}</span>
+        <span class="old-price" v-if="item?.['old-price']">{{ item?.['old-price'] }}</span>
+        <span>{{ item?.price }}</span>
       </div>
     </div>
   </div>

@@ -1,15 +1,25 @@
 <template>
-    <ProductList :products="jsonData"/>
+    <ProductList :products="jsonData" :selectedColor="selectedColor"/>
 </template>
 
 <script setup>
-import { onMounted, ref, toRefs } from 'vue';
+import { onMounted, ref, toRefs, watch } from 'vue';
 import ProductList from '../components/ProductList.vue';
 import useDownload from '../hooks/useDownload';
 const jsonData = ref(null);
+const props = defineProps({
+  selectedColor: { type: String },
+});
+
+const { selectedColor } = toRefs(props);
 const { download } = useDownload();
 onMounted(async () => {
+    console.log("STRING = ",selectedColor.value)
    jsonData.value = await download("/data/new_arrivals.json");
+})
+
+watch(selectedColor, (neww,old) => {
+    console.log(neww)
 })
 </script>
 

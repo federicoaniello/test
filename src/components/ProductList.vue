@@ -15,14 +15,19 @@
 </template>
 
 <script setup>
-import { computed, toRefs, ref, inject } from 'vue';
+import { computed, toRefs, ref } from 'vue';
 import ProductItem from './ProductItem.vue';
-const selectedColor = inject('color', null);
 const props = defineProps({
-    products: Array,
-    required:true
+    products: {
+        type: Array,
+        required: true
+    },
+    selectedColor: {
+        type: String,
+        required: false
+    }
 });
-const { products } = toRefs(props);
+const { products, selectedColor } = toRefs(props);
 let truncateMax = ref(4);
 
 
@@ -34,12 +39,9 @@ const showMore = () => {
     truncateMax.value = truncateMax.value + 4;
 }
 
-// watch(truncateMax, (prev, n) => {
-//     //products.value = products.value.slice(0, n)
-// })
-
 const filteredProducts = computed(() => {
-    return products?.value?.slice(0, truncateMax.value) || []
+    console.log("PRODUCT LIST COLOR = ", selectedColor.value)
+    return products?.value?.slice(0, truncateMax.value).filter(el => el.color.includes(selectedColor.value)) || []
 })
 
 const isMaxValueHigherThanNumberOfItems = computed(() => {

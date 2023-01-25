@@ -18,7 +18,10 @@
                 <option value="white">White</option>
                 <option value="blue">Blue</option>
                 <option value="grey">Grey</option>
-                <option selected>Filter by color</option>
+                <option value="purple">Purple</option>
+                <option value="brown">Brown</option>
+                <option value="orange">Orange</option>
+                <option selected value="">Filter by color</option>
             </select>
         </div>
         <router-view :selected-color="select_color"></router-view>
@@ -30,11 +33,10 @@
 import { ref, provide } from 'vue';
 
 const select_color = ref(null);
+
 const onChange = (event) => {
     select_color.value = event.target.value;
 }
-
-provide('color',select_color)
 </script>
 
 <style lang="scss" scoped>
