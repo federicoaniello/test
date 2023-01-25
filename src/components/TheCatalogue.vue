@@ -6,13 +6,15 @@
     </div>
     <div class="container-md">
         <div class="tabs mb-5">
-            <router-link to="/" tag="button">New Arrivals</router-link>
-            <router-link to="/bestseller" tag="'li'">
-                Best Seller
-            </router-link>
-            <router-link to="/mostview" tag="'li'">
-                Most View
-            </router-link>
+            <div class="tabs--container">
+                <router-link to="/" tag="button">New Arrivals</router-link>
+                <router-link to="/bestseller" tag="'li'">
+                    Best Seller
+                </router-link>
+                <router-link to="/mostview" tag="'li'">
+                    Most View
+                </router-link>
+            </div>
             <select @change="onChange($event)" name="select_color" id="select_color">
                 <option value="red">Red</option>
                 <option value="white">White</option>
@@ -68,7 +70,13 @@ const onChange = (event) => {
     justify-content: center;
     position: relative;
     @media (max-width:767px) {
-        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    &--container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
     select {
         right: 0;
@@ -76,6 +84,9 @@ const onChange = (event) => {
         background-color: white;
         padding: 10px 20px;
         position: absolute;
+        @media (max-width:767px) {
+            position: static;
+        }
     }
 
     .router-link-active {

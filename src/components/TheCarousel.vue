@@ -70,6 +70,10 @@ section {
             color: white;
             font-size: 24px;
             text-align: center;
+
+            @media (max-width:767px) {
+                font-size: 34px;
+            }
         }
 
     }

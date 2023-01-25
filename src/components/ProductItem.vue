@@ -45,6 +45,9 @@ const openModal = (product) => {
 .product {
   position: relative;
   min-height: 400px;
+  @media (max-width:767px) {
+    min-height: 300px;
+  }
   overflow: hidden;
 
   :hover {
@@ -57,7 +60,9 @@ const openModal = (product) => {
     background-color: rgb(190, 190, 190);
     height: 300px;
     position: relative;
-
+    @media (max-width:767px) {
+    height: 220px;
+    }
     .eye {
       opacity: 0;
       position: absolute;

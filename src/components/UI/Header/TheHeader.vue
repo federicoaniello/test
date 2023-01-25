@@ -1,5 +1,5 @@
 <template>
-    <header class="container justify-start justify-md-between">
+    <header class="container justify-content-center justify-content-md-between">
         <h1>Archiproducts</h1>
     </header>
 </template>
