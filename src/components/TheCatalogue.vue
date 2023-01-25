@@ -21,6 +21,9 @@
                 <option value="purple">Purple</option>
                 <option value="brown">Brown</option>
                 <option value="orange">Orange</option>
+                <option value="black">Black</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Green</option>
                 <option selected value="">Filter by color</option>
             </select>
         </div>

@@ -41,6 +41,7 @@ const showMore = () => {
 
 const filteredProducts = computed(() => {
     console.log("PRODUCT LIST COLOR = ", selectedColor.value)
+    if(selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateMax.value);
     return products?.value?.slice(0, truncateMax.value).filter(el => el.color.includes(selectedColor.value)) || []
 })
 
