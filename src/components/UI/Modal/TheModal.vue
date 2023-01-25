@@ -105,6 +105,7 @@ const close = () => {
 .modal-header,
 .info {
     margin-top: 5%;
+    position: relative;
 
     h1 {
         font-weight: 400;
@@ -134,6 +135,15 @@ const close = () => {
     .img {
         min-width: 600px;
         min-height: 600px;
+        position: relative;
+
+        >img {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 600px;
+        }
     }
 }
 

@@ -16,7 +16,8 @@
                     <span class="discount" v-if="productModalChosen.discount">{{ productModalChosen.discount }}</span>
                 </div>
             </div>
-            <button class="add-to-cart">Add To Cart</button>
+            <button class="add-to-cart"> <a style="text-decoration: none; color:white" :href="productModalChosen.link"
+                target="_blank">Add To Cart</a></button>
 
         </template>
     </TheModal>
@@ -108,6 +109,10 @@ const goTo = link => {
 
     @media (max-width:767px) {
         grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    }
+    @media (min-width:768px) and (max-width:992px) {
+        grid-template-columns: 1fr 1fr 1fr;
         column-gap: 10px;
     }
 }

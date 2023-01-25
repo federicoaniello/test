@@ -56,7 +56,7 @@ const openModal = (product) => {
     background-color: rgb(190, 190, 190);
     height: 320px;
     position: relative;
-
+    
     @media (max-width:767px) {
       height: 220px;
     }
@@ -144,7 +144,7 @@ const openModal = (product) => {
         text-decoration: line-through;
         color: gainsboro;
         font-weight: 200;
-        font-size: 12px;
+        font-size: 14px;
       }
 
       span {
