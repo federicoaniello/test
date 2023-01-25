@@ -1,14 +1,4 @@
 <template>
-  <!-- <div>
-<p> {{ item.name }}</p>
-<p> {{ item.description }} </p>
-<p>{{ item.price }}</p>
-<p> {{ item.link }}
-</p>
-<p>{{ item.color }}</p>
-<img :src="item['image-thumb']" alt="">
-
-  </div> -->
   <div class="product" @click="openModal(item)">
     <div class="product--img">
       <div :class="{ 'additional-info': true, 'justify-content-end': !item?.discount }">
@@ -23,7 +13,7 @@
       <h6>{{ item?.description }}</h6>
       <div class="prices">
         <span class="old-price" v-if="item?.['old-price']">{{ item?.['old-price'] }}</span>
-        <span>{{ item?.price }}</span>
+        <span style="font-weight: bold;">{{ item?.price }}</span>
       </div>
     </div>
   </div>
@@ -31,9 +21,10 @@
 
 <script setup>
 const props = defineProps({
-  item: Object,
-  required: true,
-  validator: () => item !== null
+  item: {
+    type: Object,
+    required: true
+  }
 })
 
 const openModal = (product) => {
@@ -46,9 +37,11 @@ const openModal = (product) => {
   position: relative;
   min-height: 320px;
   max-width: 270px;
+
   @media (max-width:767px) {
     min-height: 300px;
   }
+
   overflow: hidden;
 
   :hover {
@@ -61,9 +54,11 @@ const openModal = (product) => {
     background-color: rgb(190, 190, 190);
     height: 320px;
     position: relative;
+
     @media (max-width:767px) {
-    height: 220px;
+      height: 220px;
     }
+
     .eye {
       opacity: 0;
       position: absolute;
@@ -104,6 +99,10 @@ const openModal = (product) => {
       top: 50%;
       transform: translate(-50%, -50%);
       max-height: 250px;
+
+      @media (max-width:767px) {
+        max-height: 100%;
+      }
     }
 
   }
@@ -115,6 +114,10 @@ const openModal = (product) => {
     justify-content: center;
     padding: 20px;
     text-align: center;
+
+    @media (max-width:767px) {
+      padding: 10px;
+    }
 
     h5 {
       text-transform: uppercase;
@@ -133,6 +136,7 @@ const openModal = (product) => {
       flex-direction: row;
       justify-content: center;
       gap: 5px;
+      align-items: center;
 
       .old-price {
         text-decoration: line-through;
@@ -145,7 +149,7 @@ const openModal = (product) => {
         text-decoration: none;
         color: black;
         font-weight: 300;
-        font-size: 13px;
+        font-size: 16px;
       }
     }
   }

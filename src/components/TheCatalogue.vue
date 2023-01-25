@@ -17,7 +17,10 @@
             </div>
             <select v-model="select_color" @change="onChange($event)" name="select_color" id="select_color">
                 <option selected value="">Filter by color</option>
-                <option v-for="(color, index) in colors" :key="index" :value="color">{{ color[0].toUpperCase() + color.substring(1) }}</option>
+                <option v-for="(color, index) in colors" :key="index" :value="color">{{
+                    color[0].toUpperCase() +
+                        color.substring(1)
+                }}</option>
             </select>
         </div>
         <router-view :selected-color="select_color" @onColorsGathered="onColorsReceived($event)"></router-view>
@@ -43,18 +46,20 @@ const onColorsReceived = (cl) => {
 <style lang="scss" scoped>
 .title--purchase {
     font-size: 28px;
+    font-weight: lighter;
+    margin-bottom: 20px;
 
     &::after {
         display: block;
         content: "";
-        width: 30px;
+        width: 60px;
         height: 5px;
-        background-color: yellow;
+        background-color: #eed75d;
         margin: 20px auto 0;
 
         @media (max-width:767px) {
-            width: 20px;
-            margin: 0 auto;
+            width: 25px;
+            margin: 8px auto;
 
         }
     }

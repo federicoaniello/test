@@ -9,7 +9,7 @@
             <ProductItem :item="item" />
         </template>
     </section>
-    <div v-if="products" class="text-center mb-5">
+    <div v-if="moreThanOneRow" class="text-center mb-5">
         <button class="mt-5 show-more d-flex align-items-center justify-content-between" @click="showMore()">View more
             <img class="rotate" :class="{'upside-down':!isMaxValueHigherThanNumberOfItems}"
                 :src="'/svg/right-arrow.svg'" alt="" />
@@ -53,6 +53,11 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
     return products?.value?.length > truncateMax.value
 })
 
+const moreThanOneRow = computed(() => {
+    debugger
+    return products?.value?.length > 4;
+})
+
 
 </script>
 
@@ -61,9 +66,10 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 40px;
-
+    column-gap: 25px;
     @media (max-width:767px) {
         grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
     }
 }
 
