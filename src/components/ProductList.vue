@@ -29,7 +29,7 @@
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />
         </template>
-        <template v-if="!filteredProducts">
+        <template v-if="!products">
             <div style="padding-bottom: 500px;">
 
             </div>
