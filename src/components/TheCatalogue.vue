@@ -79,7 +79,16 @@ const onColorsReceived = (cl) => {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 20px;
+
+
+        a {
+            text-decoration: none;
+color: black;
+font-size: 18px;
+opacity: 0.6;
+font-weight: lighter;
+        }
     }
 
     select {
@@ -95,9 +104,11 @@ const onColorsReceived = (cl) => {
     }
 
     .router-link-active {
-        font-size: 24px;
-        color: black;
         text-decoration: none;
+        color: black;
+        font-size: 18px;
+        opacity: 1;
+        font-weight: bold;
     }
 
     >div {}

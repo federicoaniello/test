@@ -1,23 +1,13 @@
 <template>
     <TheModal @close="isModalShown = !isModalShown" v-if="isModalShown">
-          <template #body>
+        <template #body>
             {{ productModalChosen }}
-          </template>
-          <template #image>
+        </template>
+        <template #image>
             <img :src="productModalChosen['image-preview']" alt="">
-          </template>
-          <template #info>
-            <h1>Officine Tamborino</h1>
-            <h3 class="mb-5">sottotitolo con braciola</h3>
-            <div class="prices mb-5">
-                <span class="old-price">oldPrice</span>
-                <div class="d-flex justify-content-start align-items-center">
-                    <span class="actual-price">price</span>
-                    <span class="discount">discount</span>
-                </div>
-            </div>
-            <button class="add-to-cart">Add To Cart</button>
-          </template>
+        </template>
+        <template #info>
+        </template>
     </TheModal>
     <section class="row filter-container">
         <div class="col-12">
@@ -27,6 +17,11 @@
     <section class="grid">
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />
+        </template>
+        <template v-if="!filteredProducts">
+            <div style="padding-bottom: 500px;">
+
+            </div>
         </template>
     </section>
     <div v-if="moreThanOneRow" class="text-center mb-5">
@@ -82,7 +77,7 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
 })
 
 const moreThanOneRow = computed(() => {
-    
+
     return products?.value?.length > 4;
 })
 
@@ -96,9 +91,10 @@ const goTo = link => {
 <style lang="scss" scoped>
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 25% 25% 25% auto;
     row-gap: 40px;
     column-gap: 25px;
+
     @media (max-width:767px) {
         grid-template-columns: 1fr 1fr;
         column-gap: 10px;

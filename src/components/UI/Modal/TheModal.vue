@@ -7,6 +7,7 @@ const close = () => {
 
 <template>
     <transition name="modal-fade">
+        <Teleport to="body">
         <div class="modal-backdrop">
             <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
                 <header id="modalheader" @click="close">
@@ -20,21 +21,23 @@ const close = () => {
                     </div>
                     <div class="info">
                         <slot name="info">
-                            <h1>Officine Tamborino</h1>
-                            <h3 class="mb-5">sottotitolo con braciola</h3>
-                            <button class="add-to-cart">Add To Cart</button>
+                            <h1>dummy text</h1>
+                            <h3 class="mb-5">dummy text</h3>
                             <div class="prices">
                                 <span class="old-price">oldPrice</span>
-                                <div class="d-flex justify-content-start align-items-center">
+                                <div class="mb-5 d-flex justify-content-start align-items-center">
                                     <span class="actual-price">price</span>
                                     <span class="discount">discount</span>
                                 </div>
                             </div>
+                            <button class="add-to-cart">Add To Cart</button>
+
                         </slot>
                     </div>
                 </section>
             </div>
         </div>
+        </Teleport>
     </transition>
 </template>
 
