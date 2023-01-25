@@ -1,7 +1,7 @@
 <template>
     <section class="row filter-container">
         <div class="col-12">
-            
+
         </div>
     </section>
     <section class="grid">
@@ -10,7 +10,10 @@
         </template>
     </section>
     <div v-if="products" class="text-center">
-        <button class="mt-3 show-more" @click="showMore()">Show More {{ isMaxValueHigherThanNumberOfItems ? 'DOWN' : 'UP' }}</button>
+        <button class="mt-3 show-more" @click="showMore()">Show More {{
+            isMaxValueHigherThanNumberOfItems? 'DOWN':
+                'UP'
+        }}</button>
     </div>
 </template>
 
@@ -32,7 +35,7 @@ let truncateMax = ref(4);
 
 
 const showMore = () => {
-    if(!isMaxValueHigherThanNumberOfItems.value){
+    if (!isMaxValueHigherThanNumberOfItems.value) {
         truncateMax.value = 4;
         return;
     }
@@ -41,8 +44,9 @@ const showMore = () => {
 
 const filteredProducts = computed(() => {
     console.log("PRODUCT LIST COLOR = ", selectedColor.value)
-    if(selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateMax.value);
-    return products?.value?.slice(0, truncateMax.value).filter(el => el.color.includes(selectedColor.value)) || []
+    if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateMax.value);
+
+    return products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateMax.value) || []
 })
 
 const isMaxValueHigherThanNumberOfItems = computed(() => {
@@ -68,7 +72,8 @@ const isMaxValueHigherThanNumberOfItems = computed(() => {
     border: 2px solid black;
     font-size: 18px;
     margin: 0 auto;
-    &::after{
+
+    &::after {
         content: '';
         background: url('');
     }
