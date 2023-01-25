@@ -23,7 +23,7 @@
                 <option value="orange">Orange</option>
                 <option value="black">Black</option>
                 <option value="yellow">Yellow</option>
-                <option value="greeb">Green</option>
+                <option value="green">Green</option>
                 <option selected value="">Filter by color</option>
             </select>
         </div>
