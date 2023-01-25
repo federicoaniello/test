@@ -8,35 +8,35 @@ const close = () => {
 <template>
     <transition name="modal-fade">
         <Teleport to="body">
-        <div class="modal-backdrop">
-            <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-                <header id="modalheader" @click="close">
-                    <img :src="'/svg/close.svg'" alt="">
-                </header>
-                <section class="modal-body" id="modalDescription">
-                    <div class="img">
-                        <slot name="image">
-                            image placeholder
-                        </slot>
-                    </div>
-                    <div class="info">
-                        <slot name="info">
-                            <h1>dummy text</h1>
-                            <h3 class="mb-5">dummy text</h3>
-                            <div class="prices">
-                                <span class="old-price">oldPrice</span>
-                                <div class="mb-5 d-flex justify-content-start align-items-center">
-                                    <span class="actual-price">price</span>
-                                    <span class="discount">discount</span>
+            <div class="modal-backdrop">
+                <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+                    <header id="modalheader" @click="close">
+                        <img :src="'/svg/close.svg'" alt="">
+                    </header>
+                    <section class="modal-body" id="modalDescription">
+                        <div class="img">
+                            <slot name="image">
+                                image placeholder
+                            </slot>
+                        </div>
+                        <div class="info">
+                            <slot name="info">
+                                <h1>dummy text</h1>
+                                <h3 class="mb-5">dummy text</h3>
+                                <div class="prices">
+                                    <span class="old-price">oldPrice</span>
+                                    <div class="mb-5 d-flex justify-content-start align-items-center">
+                                        <span class="actual-price">price</span>
+                                        <span class="discount">discount</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <button class="add-to-cart">Add To Cart</button>
+                                <button class="add-to-cart">Add To Cart</button>
 
-                        </slot>
-                    </div>
-                </section>
+                            </slot>
+                        </div>
+                    </section>
+                </div>
             </div>
-        </div>
         </Teleport>
     </transition>
 </template>
@@ -104,6 +104,8 @@ const close = () => {
 
 .modal-header,
 .info {
+    margin-top: 5%;
+
     h1 {
         font-weight: 400;
         font-size: 32px;
@@ -127,19 +129,25 @@ const close = () => {
     padding: 20px 10px;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+
+    .img {
+        min-width: 600px;
+        min-height: 600px;
+    }
 }
 
 .add-to-cart {
     background-color: #ff4040;
-padding: 14px 35px;
-display: flex;
-gap: 10px;
-color: white;
-border-radius: 4px;
-border: none;
-align-items: center;
-width: 100%;
-justify-content: center;
+    padding: 14px 35px;
+    display: flex;
+    gap: 10px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 
     &::before {
         content: url('/svg/shopping-cart.svg');

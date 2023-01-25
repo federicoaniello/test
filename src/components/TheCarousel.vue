@@ -131,7 +131,7 @@ section {
         flex-direction: column;
 
         .second-div {
-            font-size: 15px;
+            font-size: 18px;
             font-weight: lighter;
 
             img {
@@ -143,7 +143,7 @@ section {
         .carousel--wrapper {
             position: absolute;
             color: white;
-            font-size: 36px;
+            font-size: 54px;
             text-align: center;
             font-weight: lighter;
 

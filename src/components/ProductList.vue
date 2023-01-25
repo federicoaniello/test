@@ -7,6 +7,17 @@
             <img :src="productModalChosen['image-preview']" alt="">
         </template>
         <template #info>
+            <h1>{{ productModalChosen.name }}</h1>
+            <h3 class="mb-5">{{ productModalChosen.description }}</h3>
+            <div class="prices">
+                <span class="old-price" v-if="productModalChosen['old-price']">{{ productModalChosen['old-price'] }}</span>
+                <div class="mb-5 d-flex justify-content-start align-items-center">
+                    <span class="actual-price">{{ productModalChosen.price }}</span>
+                    <span class="discount" v-if="productModalChosen.discount">{{ productModalChosen.discount }}</span>
+                </div>
+            </div>
+            <button class="add-to-cart">Add To Cart</button>
+
         </template>
     </TheModal>
     <section class="row filter-container">
