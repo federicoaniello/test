@@ -1,5 +1,5 @@
 <template>
-    <ProductList :products="jsonData" :selectedColor="selectedColor"/>
+  <ProductList :products="jsonData" :selectedColor="selectedColor" />
 </template>
 
 <script setup>
@@ -16,12 +16,9 @@ const { selectedColor } = toRefs(props);
 const colors = ref([]);
 const jsonData = ref(null);
 onMounted(async () => {
-   jsonData.value = await download("/data/best_seller.json");
-   colors.value = colorUtility(jsonData);
+  jsonData.value = await download("/data/best_seller.json");
+  colors.value = colorUtility(jsonData);
    emits('onColorsGathered',colors.value);
-})
-watch(selectedColor, (neww,old) => {
-    console.log(neww)
 })
 </script>
 

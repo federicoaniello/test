@@ -38,6 +38,7 @@ const onChange = (event) => {
 }
 const { toCapitalized } = useDownload();
 
+
 const onColorsReceived = (cl) => {
     colors.value = cl;
     select_color.value = '';

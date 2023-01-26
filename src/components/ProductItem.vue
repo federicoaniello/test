@@ -1,3 +1,4 @@
+
 <template>
   <div class="product" @click="openModal(item)">
     <div class="product--img">
@@ -100,6 +101,8 @@ const openModal = (product) => {
       top: 50%;
       transform: translate(-50%, -50%);
       max-height: calc(100% - 60px);
+      max-width: 100%;
+      object-fit: contain;
       @media (max-width:767px) {
         max-height: 100%;
       }
