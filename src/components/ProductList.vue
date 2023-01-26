@@ -33,7 +33,7 @@
             </div>
         </template>
     </section>
-    <div v-if="moreThan4" class="text-center mb-5">
+    <div v-if="moreToShow" class="text-center mb-5">
         <button :disabled="!moreToShow"
             class="mt-5 show-more d-flex align-items-center justify-content-between"
             @click="showMore()">{{moreToShow ? 'View more' : 'No more products to see' }}
@@ -68,27 +68,36 @@ const { products, selectedColor } = toRefs(props);
 const truncateValue = ref(4);
 
 const moreToShow = computed(() => {
-    return truncateValue.value < products?.value?.length
+    console.log("products Length", productsLength.value);
+
+    return productsLength.value > truncateValue.value;
 });
 
 const moreThan4 = computed(() => {
-    return filteredProducts?.value?.length > 3
+    return filteredProducts?.value?.length >= 3
+})
+
+const productsLength = computed(() => {
+    if (selectedColor.value === null || selectedColor.value === '') return products?.value?.length;
+    return products?.value?.filter(el => el.color.includes(selectedColor.value)).length
 })
 
 const showMore = () => {
-    if (!moreThan4) {
-        truncateValue.value = 4;
-        return;
-    }
     truncateValue.value += 4;
 }
 
+/**
+ * Restituisce i prodotti filtrati per colore e per il truncateValue (multiplo di 4)
+ */
 const filteredProducts = computed(() => {
     if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateValue.value);
     const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateValue.value) || [];
     return filtered;
 })
 
+/**
+ * Ogni volta che cambio colore, resetto il truncateValue
+ */
 watch(selectedColor, (newValue, oldValue) => {
     truncateValue.value = 4;
 })

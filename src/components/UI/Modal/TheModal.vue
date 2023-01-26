@@ -43,6 +43,8 @@ const close = (event) => {
 </template>
 
 <style lang="scss">
+@use "src/styles/variables" as vars;
+
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -88,7 +90,7 @@ const close = (event) => {
     }
 
     .discount {
-        background-color: red;
+        background-color: vars.$red_discounts;
         color: white;
         border-radius: 5px;
         font-size: 0.8rem;

@@ -44,6 +44,8 @@ const openModal = (product) => {
 </script>
 
 <style lang="scss" scoped>
+@use "src/styles/variables" as vars;
+
 .product {
   position: relative;
   min-height: 320px;
@@ -93,7 +95,7 @@ const openModal = (product) => {
       z-index: 2;
 
       >span {
-        background-color: red;
+        background-color: vars.$red_discounts;
         color: white;
         border-radius: 5px;
         font-size: 0.8rem;
