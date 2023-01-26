@@ -53,7 +53,7 @@ const openModal = (product) => {
   }
 
   &--img {
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(232, 232, 232);
     height: 320px;
     position: relative;
     
