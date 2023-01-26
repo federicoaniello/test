@@ -1,6 +1,7 @@
 <script setup>
 const emits = defineEmits(['close']);
-const close = () => {
+const close = (event) => {
+    if(event.target.closest('.modal-body')) return
     emits('close');
 }
 </script>

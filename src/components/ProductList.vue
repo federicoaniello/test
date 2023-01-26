@@ -23,11 +23,6 @@
 
         </template>
     </TheModal>
-    <section class="row filter-container">
-        <div class="col-12">
-
-        </div>
-    </section>
     <section class="grid">
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />
@@ -38,11 +33,11 @@
             </div>
         </template>
     </section>
-    <div v-if="!isMaxValueHigherThanNumberOfItems" class="text-center mb-5">
-        <button :disabled="isMaxValueHigherThanNumberOfItems"
+    <div v-if="moreThan4" class="text-center mb-5">
+        <button :disabled="!moreToShow"
             class="mt-5 show-more d-flex align-items-center justify-content-between"
-            @click="showMore()">{{!isMaxValueHigherThanNumberOfItems ? 'View more' : 'No more products to see' }}
-            <img class="rotate" :class="{'upside-down':isMaxValueHigherThanNumberOfItems}" :src="'/svg/right-arrow.svg'"
+            @click="showMore()">{{moreToShow ? 'View more' : 'No more products to see' }}
+            <img class="rotate" :class="{'upside-down':!moreToShow}" :src="'/svg/right-arrow.svg'"
                 alt="" />
         </button>
     </div>
@@ -70,38 +65,33 @@ const showModal = product => {
     productModalChosen.value = product;
 }
 const { products, selectedColor } = toRefs(props);
-const truncateMax = ref(4);
+const truncateValue = ref(4);
 
-const isMaxValueHigherThanNumberOfItems = computed(() => {
-    return products?.value?.length >= truncateMax.value
+const moreToShow = computed(() => {
+    return truncateValue.value < products?.value?.length
+});
+
+const moreThan4 = computed(() => {
+    return filteredProducts?.value?.length > 3
 })
 
 const showMore = () => {
-    if (!moreThanOneRow) {
-        truncateMax.value = 4;
+    if (!moreThan4) {
+        truncateValue.value = 4;
         return;
     }
-    truncateMax.value += 4;
+    truncateValue.value += 4;
 }
 
 const filteredProducts = computed(() => {
-    if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateMax.value);
-    const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateMax.value) || [];
+    if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateValue.value);
+    const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateValue.value) || [];
     return filtered;
 })
 
-const moreThanOneRow = computed(() => {
-    return filteredProducts?.value?.length > 4
-})
-
-
 watch(selectedColor, (newValue, oldValue) => {
-    truncateMax.value = 4;
+    truncateValue.value = 4;
 })
-
-const goTo = link => {
-    window.location.href = link;
-}
 
 
 </script>
