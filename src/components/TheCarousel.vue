@@ -1,5 +1,5 @@
 <template>
-    <swiper :modules="[Navigation]" :slides-per-view="1" :space-between="0" :centered-slides="false" :autoplay="true"
+    <swiper :modules="[Navigation]" :slides-per-view="1" :allow-touch-move="false" :prevent-interaction-on-transition="true" :space-between="0" :centered-slides="false" :autoplay="true"
         :loop="true" :breakpoints="{
             768: {
                 slidesPerView: 1.2,
@@ -11,36 +11,21 @@
                 }
             },
         }" @swiper="onSwiper" @slideChange="onSlideChange">
-        <swiper-slide>
+        <swiper-slide v-for="(slide, index) in swiper_data" :key="index">
             <main class="overlay-buttons">
                 <button class="image-swiper-button-prev"></button>
                 <button class="image-swiper-button-next"></button>
             </main>
             <section>
                 <div>
-                    <img :src="'./public/carousel/carousel-01.jpg'" alt="">
-                    <div class="carousel--wrapper">
-                        <div><strong>Extending</strong> tables</div>
-                        <div class="second-div">See all <span><img class="ml-3" :src="'/svg/right-arrow.svg'"
-                                    alt=""></span></div>
+                    <img :src="slide.img" alt="">
+                    <div v-if="slide.titles" class="carousel--wrapper">
+                        <div v-html="slide.titles.first"></div>
+                        <div class="second-div">{{ slide.titles.second }}<span><img class="ml-3"
+                                    :src="'/svg/right-arrow.svg'" alt=""></span></div>
                     </div>
                 </div>
             </section>
-
-        </swiper-slide>
-        <swiper-slide>
-            <main class="overlay-buttons">
-                <button class="image-swiper-button-prev"></button>
-                <button class="image-swiper-button-next"></button>
-            </main>
-            <img :src="'./public/carousel/carousel-02.jpg'" alt="">
-        </swiper-slide>
-        <swiper-slide>
-            <main class="overlay-buttons">
-                <button class="image-swiper-button-prev"></button>
-                <button class="image-swiper-button-next"></button>
-            </main>
-            <img :src="'./public/carousel/carousel-03.jpg'" alt="">
         </swiper-slide>
     </swiper>
 </template>
@@ -48,6 +33,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from "swiper";
+import { swiper_data } from './swiper_data';
 // Import Swiper styles
 import 'swiper/scss';
 
@@ -60,21 +46,22 @@ const onSlideChange = () => {
 </script>
 
 <style lang="scss" scoped>
-
-.swiper-slide{
+.swiper-slide {
     @media (max-width:767px) {
         width: 100vw;
-        >img{
+
+        >img {
             overflow: hidden;
         }
     }
 }
 
-.swiper-slide-active .overlay-buttons{
-    
+.swiper-slide-active .overlay-buttons {
+    display: flex !important;
 }
+
 .overlay-buttons {
-    display: none;
+    display: none !important;
     opacity: 0;
     transition: all 0.3s;
     left: 0;
@@ -86,6 +73,7 @@ const onSlideChange = () => {
     position: absolute;
     top: 0;
     bottom: 0;
+
     @media (max-width:767px) {
         display: none;
     }
@@ -138,9 +126,12 @@ section {
         .second-div {
             font-size: 18px;
             font-weight: lighter;
-
             img {
                 width: 12px;
+            }
+            span{
+            
+                margin-left: 10px;
             }
         }
 
