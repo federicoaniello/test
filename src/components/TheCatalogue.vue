@@ -72,10 +72,12 @@ const onColorsReceived = (cl) => {
     gap: 5px;
     justify-content: center;
     position: relative;
-
+    align-items: center;
+    
     @media (max-width:767px) {
         flex-direction: column;
-    }
+        align-items: unset;
+    }   
 
     &--container {
         display: flex;

@@ -10,11 +10,9 @@ export const useDownload =  () => {
     const colorUtility = (jsonData) => {
         let colors = [];
         jsonData.value.forEach(({color}) => {
-            console.log(color)
             colors.push(...color);
            })
            colors =[...new Set(colors)]; 
-           console.log(colors)
            return colors;
         }
 

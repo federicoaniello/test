@@ -10,14 +10,16 @@
             <h1>{{ productModalChosen.name }}</h1>
             <h3 class="mb-5">{{ productModalChosen.description }}</h3>
             <div class="prices">
-                <span class="old-price" v-if="productModalChosen['old-price']">{{ productModalChosen['old-price'] }}</span>
+                <span class="old-price" v-if="productModalChosen['old-price']">{{
+                    productModalChosen['old-price']
+                }}</span>
                 <div class="mb-5 d-flex justify-content-start align-items-center">
                     <span class="actual-price">{{ productModalChosen.price }}</span>
                     <span class="discount" v-if="productModalChosen.discount">{{ productModalChosen.discount }}</span>
                 </div>
             </div>
             <button class="add-to-cart"> <a style="text-decoration: none; color:white" :href="productModalChosen.link"
-                target="_blank">Add To Cart</a></button>
+                    target="_blank">Add To Cart</a></button>
 
         </template>
     </TheModal>
@@ -36,16 +38,18 @@
             </div>
         </template>
     </section>
-    <div v-if="moreThanOneRow" class="text-center mb-5">
-        <button :disabled="!isMaxValueHigherThanNumberOfItems" class="mt-5 show-more d-flex align-items-center justify-content-between" @click="showMore()">{{isMaxValueHigherThanNumberOfItems ? 'View more' : 'No more products to see' }}
-            <img class="rotate" :class="{'upside-down':!isMaxValueHigherThanNumberOfItems}"
-                :src="'/svg/right-arrow.svg'" alt="" />
+    <div v-if="!isMaxValueHigherThanNumberOfItems" class="text-center mb-5">
+        <button :disabled="isMaxValueHigherThanNumberOfItems"
+            class="mt-5 show-more d-flex align-items-center justify-content-between"
+            @click="showMore()">{{!isMaxValueHigherThanNumberOfItems ? 'View more' : 'No more products to see' }}
+            <img class="rotate" :class="{'upside-down':isMaxValueHigherThanNumberOfItems}" :src="'/svg/right-arrow.svg'"
+                alt="" />
         </button>
     </div>
 </template>
 
 <script setup>
-import { computed, toRefs, ref } from 'vue';
+import { computed, toRefs, ref, watch } from 'vue';
 import ProductItem from './ProductItem.vue';
 import TheModal from './UI/Modal/TheModal.vue';
 const props = defineProps({
@@ -66,35 +70,33 @@ const showModal = product => {
     productModalChosen.value = product;
 }
 const { products, selectedColor } = toRefs(props);
-let truncateMax = ref(4);
+const truncateMax = ref(4);
 
+const isMaxValueHigherThanNumberOfItems = computed(() => {
+    return products?.value?.length >= truncateMax.value
+})
 
 const showMore = () => {
-    if (!isMaxValueHigherThanNumberOfItems.value) {
+    if (!moreThanOneRow) {
         truncateMax.value = 4;
         return;
     }
-    truncateMax.value = truncateMax.value + 4;
+    truncateMax.value += 4;
 }
 
 const filteredProducts = computed(() => {
-    console.log("PRODUCT LIST COLOR = ", selectedColor.value)
     if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateMax.value);
-
-    return products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateMax.value) || []
-})
-
-/**
- * Checks if number of products is higher than the number of truncateMax
- * 
- */
-const isMaxValueHigherThanNumberOfItems = computed(() => {
-    return products?.value?.length > truncateMax.value
+    const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateMax.value) || [];
+    return filtered;
 })
 
 const moreThanOneRow = computed(() => {
+    return filteredProducts?.value?.length > 4
+})
 
-    return products?.value?.length > 4;
+
+watch(selectedColor, (newValue, oldValue) => {
+    truncateMax.value = 4;
 })
 
 const goTo = link => {
@@ -115,6 +117,7 @@ const goTo = link => {
         grid-template-columns: 1fr 1fr;
         column-gap: 10px;
     }
+
     @media (min-width:768px) and (max-width:992px) {
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 10px;
@@ -135,7 +138,7 @@ const goTo = link => {
         background: url('');
     }
 
-    &:disabled{
+    &:disabled {
         opacity: 30%;
     }
 

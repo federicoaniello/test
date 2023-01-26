@@ -7,8 +7,8 @@ const close = () => {
 
 <template>
     <Teleport to="body">
-            <Transition name="modal-fade">
-            <div class="modal-backdrop">
+        <Transition name="modal-fade">
+            <div class="modal-backdrop" @click="close">
                 <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
                     <header id="modalheader" @click="close">
                         <img :src="'/svg/close.svg'" alt="">
@@ -38,7 +38,7 @@ const close = () => {
                 </div>
             </div>
         </Transition>
-        </Teleport>
+    </Teleport>
 </template>
 
 <style lang="scss">
@@ -77,6 +77,14 @@ const close = () => {
     overflow-x: auto;
     display: flex;
     flex-direction: column;
+    height: 600px;
+    width: calc(100% - 30vw);
+    overflow: hidden;
+
+    @media (max-width:767px) {
+        height: 100vh;
+        width: 100vw;
+    }
 
     .discount {
         background-color: red;
@@ -96,25 +104,36 @@ const close = () => {
     }
 
     .actual-price {
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 28px;
+        font-weight: 700;
         margin-right: 8px;
     }
 }
 
 .modal-header,
 .info {
-    margin-top: 5%;
+    position: relative;
+    width: 40%;
+    margin-top: 60px;
+    max-width: fit-content;
+    margin-right: 60px;
+
+    @media (max-width:767px) {
+        width: 100%;
+        max-width:100%;
+        margin-right: unset;
+    }
+
     position: relative;
 
     h1 {
-        font-weight: 400;
-        font-size: 32px;
+        font-size: 28px;
+        font-weight: bold;
     }
 
     h3 {
-        font-weight: 300;
-        font-size: 20px;
+        font-weight: 400;
+        font-size: 18px;
     }
 }
 
@@ -129,27 +148,38 @@ const close = () => {
     position: relative;
     padding: 20px 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width:767px) {
+        flex-direction: column;
+        align-items: center;
+    }
 
     .img {
-        min-width: 600px;
-        min-height: 600px;
         position: relative;
+        width: 50%;
+
+        @media (max-width:767px) {
+            width: 100vw;
+            position: static;
+            max-width: 500px;
+        }
 
         >img {
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 600px;
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+
+            @media (max-width:767px) {}
         }
     }
 }
 
 .add-to-cart {
     background-color: #ff4040;
-    padding: 14px 35px;
+    padding: 14px 60px;
     display: flex;
     gap: 10px;
     color: white;
@@ -160,7 +190,7 @@ const close = () => {
     justify-content: center;
 
     &::before {
-        content: url('/svg/shopping-cart.svg');
+        content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg fill='white' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 486.569 486.569' style='enable-background:new 0 0 486.569 486.569;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M146.069,320.369h268.1c30.4,0,55.2-24.8,55.2-55.2v-112.8c0-0.1,0-0.3,0-0.4c0-0.3,0-0.5,0-0.8c0-0.2,0-0.4-0.1-0.6 c0-0.2-0.1-0.5-0.1-0.7s-0.1-0.4-0.1-0.6c-0.1-0.2-0.1-0.4-0.2-0.7c-0.1-0.2-0.1-0.4-0.2-0.6c-0.1-0.2-0.1-0.4-0.2-0.6 c-0.1-0.2-0.2-0.4-0.3-0.7c-0.1-0.2-0.2-0.4-0.3-0.5c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.2-0.3-0.4-0.4-0.6 c-0.1-0.2-0.2-0.3-0.4-0.5c-0.1-0.2-0.3-0.3-0.4-0.5s-0.3-0.3-0.4-0.5s-0.3-0.3-0.4-0.4c-0.2-0.2-0.3-0.3-0.5-0.5 c-0.2-0.1-0.3-0.3-0.5-0.4c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.1-0.3-0.2-0.5-0.3s-0.4-0.2-0.6-0.4c-0.2-0.1-0.4-0.2-0.6-0.3 s-0.4-0.2-0.6-0.3s-0.4-0.2-0.6-0.3s-0.4-0.1-0.6-0.2c-0.2-0.1-0.5-0.2-0.7-0.2s-0.4-0.1-0.5-0.1c-0.3-0.1-0.5-0.1-0.8-0.1 c-0.1,0-0.2-0.1-0.4-0.1l-339.8-46.9v-47.4c0-0.5,0-1-0.1-1.4c0-0.1,0-0.2-0.1-0.4c0-0.3-0.1-0.6-0.1-0.9c-0.1-0.3-0.1-0.5-0.2-0.8 c0-0.2-0.1-0.3-0.1-0.5c-0.1-0.3-0.2-0.6-0.3-0.9c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.4-0.8c-0.1-0.1-0.1-0.3-0.2-0.4 c-0.1-0.2-0.2-0.4-0.4-0.6c-0.1-0.2-0.2-0.3-0.3-0.5s-0.2-0.3-0.3-0.5s-0.3-0.4-0.4-0.6c-0.1-0.1-0.2-0.2-0.3-0.3 c-0.2-0.2-0.4-0.4-0.6-0.6c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.2-0.4-0.4-0.7-0.6c-0.1-0.1-0.3-0.2-0.4-0.3c-0.2-0.2-0.4-0.3-0.6-0.5 c-0.3-0.2-0.6-0.4-0.8-0.5c-0.1-0.1-0.2-0.1-0.3-0.2c-0.4-0.2-0.9-0.4-1.3-0.6l-73.7-31c-6.9-2.9-14.8,0.3-17.7,7.2 s0.3,14.8,7.2,17.7l65.4,27.6v61.2v9.7v74.4v66.5v84c0,28,21,51.2,48.1,54.7c-4.9,8.2-7.8,17.8-7.8,28c0,30.1,24.5,54.5,54.5,54.5 s54.5-24.5,54.5-54.5c0-10-2.7-19.5-7.5-27.5h121.4c-4.8,8.1-7.5,17.5-7.5,27.5c0,30.1,24.5,54.5,54.5,54.5s54.5-24.5,54.5-54.5 s-24.5-54.5-54.5-54.5h-255c-15.6,0-28.2-12.7-28.2-28.2v-36.6C126.069,317.569,135.769,320.369,146.069,320.369z M213.269,431.969 c0,15.2-12.4,27.5-27.5,27.5s-27.5-12.4-27.5-27.5s12.4-27.5,27.5-27.5S213.269,416.769,213.269,431.969z M428.669,431.969 c0,15.2-12.4,27.5-27.5,27.5s-27.5-12.4-27.5-27.5s12.4-27.5,27.5-27.5S428.669,416.769,428.669,431.969z M414.169,293.369h-268.1 c-15.6,0-28.2-12.7-28.2-28.2v-66.5v-74.4v-5l324.5,44.7v101.1C442.369,280.769,429.669,293.369,414.169,293.369z'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
         width: 18px;
     }
 }

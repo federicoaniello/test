@@ -1,7 +1,9 @@
 <template>
-    <swiper :modules="[Navigation]" :slides-per-view="1" :allow-touch-move="false" :prevent-interaction-on-transition="true" :space-between="0" :centered-slides="false" :autoplay="true"
+    <swiper :modules="[Navigation]" :slides-per-view="1" :allow-touch-move="true"
+        :prevent-interaction-on-transition="true" :navigation="false" :space-between="0" :centered-slides="false"
         :loop="true" :breakpoints="{
             768: {
+                allowTouchMove: false,
                 slidesPerView: 1.2,
                 centeredSlides: true,
                 navigation: {
@@ -38,7 +40,6 @@ import { swiper_data } from './swiper_data';
 import 'swiper/scss';
 
 const onSwiper = (swiper) => {
-    console.log(swiper);
 };
 const onSlideChange = () => {
     console.log('slide change');
@@ -54,29 +55,35 @@ const onSlideChange = () => {
             overflow: hidden;
         }
     }
+
+    &-active {
+         @media (max-width:767px) {
+            z-index: 1; 
+        }
+        .overlay-buttons {
+            display: flex;
+            
+            @media (max-width:767px) {
+                display: none;
+            }
+        }
+    }
 }
 
-.swiper-slide-active .overlay-buttons {
-    display: flex !important;
-}
 
 .overlay-buttons {
-    display: none !important;
+    display: none;
     opacity: 0;
     transition: all 0.3s;
     left: 0;
     right: 0;
     z-index: 5;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     position: absolute;
     top: 0;
     bottom: 0;
 
-    @media (max-width:767px) {
-        display: none;
-    }
 
     &:hover {
         opacity: 1;
@@ -126,11 +133,13 @@ section {
         .second-div {
             font-size: 18px;
             font-weight: lighter;
+
             img {
                 width: 12px;
             }
-            span{
-            
+
+            span {
+
                 margin-left: 10px;
             }
         }
