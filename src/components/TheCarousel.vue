@@ -69,7 +69,12 @@ const onSlideChange = () => {
         }
     }
 }
+
+.swiper-slide-active .overlay-buttons{
+    
+}
 .overlay-buttons {
+    display: none;
     opacity: 0;
     transition: all 0.3s;
     left: 0;

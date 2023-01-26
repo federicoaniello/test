@@ -6,8 +6,8 @@ const close = () => {
 </script>
 
 <template>
-    <transition name="modal-fade">
-        <Teleport to="body">
+    <Teleport to="body">
+            <Transition name="modal-fade">
             <div class="modal-backdrop">
                 <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
                     <header id="modalheader" @click="close">
@@ -37,8 +37,8 @@ const close = () => {
                     </section>
                 </div>
             </div>
+        </Transition>
         </Teleport>
-    </transition>
 </template>
 
 <style lang="scss">

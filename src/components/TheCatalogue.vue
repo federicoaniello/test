@@ -8,18 +8,17 @@
         <div class="tabs mb-5">
             <div class="tabs--container">
                 <router-link to="/" tag="button">New Arrivals</router-link>
-                <router-link to="/bestseller" tag="'li'">
+                <router-link to="/bestseller">
                     Best Seller
                 </router-link>
-                <router-link to="/mostview" tag="'li'">
+                <router-link to="/mostview">
                     Most View
                 </router-link>
             </div>
-            <select v-model="select_color" @change="onChange($event)" name="select_color" id="select_color">
+            <select v-model="select_color" @change="onChange($event)">
                 <option selected value="">Filter by color</option>
                 <option v-for="(color, index) in colors" :key="index" :value="color">{{
-                    color[0].toUpperCase() +
-                        color.substring(1)
+                    toCapitalized(color)
                 }}</option>
             </select>
         </div>
@@ -30,12 +29,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import useDownload from '../hooks/useDownload';
 
 const select_color = ref(null);
 const colors = ref([]);
 const onChange = (event) => {
     select_color.value = event.target.value;
 }
+const { toCapitalized } = useDownload();
 
 const onColorsReceived = (cl) => {
     colors.value = cl;

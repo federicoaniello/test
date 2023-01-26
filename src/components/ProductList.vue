@@ -37,7 +37,7 @@
         </template>
     </section>
     <div v-if="moreThanOneRow" class="text-center mb-5">
-        <button class="mt-5 show-more d-flex align-items-center justify-content-between" @click="showMore()">View more
+        <button :disabled="!isMaxValueHigherThanNumberOfItems" class="mt-5 show-more d-flex align-items-center justify-content-between" @click="showMore()">{{isMaxValueHigherThanNumberOfItems ? 'View more' : 'No more products to see' }}
             <img class="rotate" :class="{'upside-down':!isMaxValueHigherThanNumberOfItems}"
                 :src="'/svg/right-arrow.svg'" alt="" />
         </button>
@@ -84,6 +84,10 @@ const filteredProducts = computed(() => {
     return products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateMax.value) || []
 })
 
+/**
+ * Checks if number of products is higher than the number of truncateMax
+ * 
+ */
 const isMaxValueHigherThanNumberOfItems = computed(() => {
     return products?.value?.length > truncateMax.value
 })
@@ -103,7 +107,7 @@ const goTo = link => {
 <style lang="scss" scoped>
 .grid {
     display: grid;
-    grid-template-columns: 25% 25% 25% auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 40px;
     column-gap: 25px;
 
@@ -129,6 +133,10 @@ const goTo = link => {
     &::after {
         content: '';
         background: url('');
+    }
+
+    &:disabled{
+        opacity: 30%;
     }
 
 

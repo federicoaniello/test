@@ -17,24 +17,13 @@
         </div>
         <div class="subtitle my-4"><strong>Categories</strong></div>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 columns">
                 <ul>
                     <li>Arredo</li>
                     <li>Bagno</li>
                     <li>Cucina</li>
                     <li>Outdoor</li>
                     <li>Ufficio</li>
-                    <div class="d-md-none">
-                        <li>Illuminazione</li>
-                        <li>Wellness</li>
-                        <li>XXXX</li>
-                        <li>DDDDD</li>
-                        <li>DDDDDDD</li>
-                    </div>
-                </ul>
-            </div>
-            <div class="col-6 d-none d-md-block">
-                <ul>
                     <li>Illuminazione</li>
                     <li>Wellness</li>
                     <li>XXXX</li>
@@ -62,6 +51,10 @@ section {
     @media (max-width:767px) {
         margin: 10px;
     }
-    article {}
+    .columns{
+        @media (min-width:768px) {
+            columns: 2;
+        }
+    }
 }
 </style>

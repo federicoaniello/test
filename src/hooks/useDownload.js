@@ -16,13 +16,23 @@ export const useDownload =  () => {
            colors =[...new Set(colors)]; 
            console.log(colors)
            return colors;
-    }
+        }
 
+/**
+ * Trasforma una stringa in Capitalized ( lettera maiuscola iniziale )
+ * @param {string} string 
+ * @returns string
+ */
+        const toCapitalized = string => {
+            if(string === null || string === undefined || string === '') return '';
+            return `${string[0].toUpperCase()}${string.substring(1)}`
+        }
 
 
     return {
         download,
-        colorUtility
+        colorUtility,
+        toCapitalized
     }
 }
 

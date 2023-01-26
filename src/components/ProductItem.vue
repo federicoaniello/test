@@ -6,7 +6,7 @@
         <img src="/svg/heart.svg" alt="">
       </div>
       <img :src="item?.['image-thumb']" alt="">
-      <img class="eye" src="/svg/visible.svg" alt="">
+      <img class="eye" src="/svg/visible.svg" alt="" />
     </div>
     <div class="product--info">
       <h5>{{ item?.name }}</h5>
@@ -38,7 +38,6 @@ const openModal = (product) => {
 .product {
   position: relative;
   min-height: 320px;
-  max-width: 270px;
 
   @media (max-width:767px) {
     min-height: 300px;
@@ -100,8 +99,7 @@ const openModal = (product) => {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      max-height: 250px;
-
+      max-height: calc(100% - 60px);
       @media (max-width:767px) {
         max-height: 100%;
       }
