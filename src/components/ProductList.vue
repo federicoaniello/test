@@ -87,11 +87,13 @@ const showMore = () => {
 //WATCH 
 
 /**
- * Ogni volta che cambio colore, resetto il truncateValue
+ * Ogni volta che cambio colore o ricevo nuovi prodotti, resetto il truncateValue
  */
-watch(selectedColor, (newValue, oldValue) => {
+watch([selectedColor,products], () => {
     truncateValue.value = 4;
 })
+
+
 
 
 </script>

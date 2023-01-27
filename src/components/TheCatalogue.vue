@@ -31,6 +31,7 @@ import { links_data } from './data';
 const select_color = ref(null);
 const api = ref();
 const colors = ref([]);
+
 const onChange = (event) => {
     select_color.value = event.target.value;
 }
