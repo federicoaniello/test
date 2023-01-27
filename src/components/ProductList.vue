@@ -33,7 +33,7 @@
             </div>
         </template>
     </section>
-    <div v-if="moreToShow" class="text-center mb-5">
+    <div v-if="moreToShow || moreThan4" class="text-center mb-5">
         <button :disabled="!moreToShow"
             class="mt-5 show-more d-flex align-items-center justify-content-between"
             @click="showMore()">{{moreToShow ? 'View more' : 'No more products to see' }}
@@ -74,7 +74,7 @@ const moreToShow = computed(() => {
 });
 
 const moreThan4 = computed(() => {
-    return filteredProducts?.value?.length >= 3
+    return filteredProducts?.value?.length > 3
 })
 
 const productsLength = computed(() => {
