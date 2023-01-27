@@ -6,8 +6,8 @@ const emits = defineEmits(['close']);
 const modalStore = useModalStore();
 const { getModalData } = storeToRefs(modalStore)
 const close = (event) => {
-    modalStore.resetModal();
     if(event.target.closest('.modal-body')) return
+    modalStore.resetModal();
     emits('close');
 }
 </script>
@@ -38,7 +38,7 @@ const close = (event) => {
                                         <span v-if="getModalData.discount" class="discount">{{getModalData.discount}}</span>
                                     </div>
                                 </div>
-                                <button class="add-to-cart">Add To Cart</button>
+                               <a :href="getModalData.link" target="_blank"><button class="add-to-cart">Add To Cart</button></a>
 
                             </slot>
                         </div>
@@ -218,3 +218,8 @@ const close = (event) => {
     }
 }
 </style>
+
+<style scoped lang="scss">
+a{
+    text-decoration: none;
+}</style>
