@@ -23,13 +23,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import useDownload from '../hooks/useDownload';
 import DownloadList from '../views/DownloadList.vue';
 import { links_data } from './data';
 
 const select_color = ref(null);
-const api = ref(links_data[0].api);
+const api = ref();
 const colors = ref([]);
 const onChange = (event) => {
     select_color.value = event.target.value;
@@ -45,6 +45,11 @@ const onColorsReceived = (cl) => {
     colors.value = cl;
     select_color.value = '';
 }
+
+onBeforeMount(() => {
+    const default_api = links_data.find(tab => tab.isDefault === true).api;
+    api.value = default_api; 
+})
 </script>
 
 <style lang="scss" scoped>

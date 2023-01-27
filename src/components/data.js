@@ -17,13 +17,16 @@ export const swiper_data = [
 export const links_data = [
     {
         'name':'New Arrivals',
-        'api': '/data/new_arrivals.json'
+        'api': '/data/new_arrivals.json',
+        'isDefault':true
     },
     {
         'name':'Best Seller',
-        'api': '/data/best_seller.json'
+        'api': '/data/best_seller.json',
+        'isDefault':false
     },   {
         'name':'Most View',
-        'api': '/data/most_view.json'
+        'api': '/data/most_view.json',
+        'isDefault':false
     },
 ]
