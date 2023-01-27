@@ -29,6 +29,10 @@
 </template>
 
 <script setup>
+import useModalStore from '../store/useModalStore';
+
+const modal = useModalStore();
+const {sendModalData} = modal;
 const props = defineProps({
   item: {
     type: Object,
@@ -38,7 +42,8 @@ const props = defineProps({
 const emits = defineEmits(['onProductChosen'])
 
 const openModal = (product) => {
-  console.log('selected Item: ', product)
+  console.log('selected Item: ', product);
+  sendModalData(product)
   emits('onProductChosen',product);
 }
 </script>

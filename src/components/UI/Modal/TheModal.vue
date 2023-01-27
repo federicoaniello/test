@@ -1,6 +1,10 @@
 <script setup>
+import useModalStore from '../../../store/useModalStore';
+
 const emits = defineEmits(['close']);
+const md = useModalStore();
 const close = (event) => {
+    md.resetModal();
     if(event.target.closest('.modal-body')) return
     emits('close');
 }
