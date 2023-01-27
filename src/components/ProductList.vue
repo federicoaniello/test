@@ -3,14 +3,12 @@
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />
         </template>
-        <div v-if="products?.length == 0 " style="padding-bottom: 500px;"></div>
+        <div v-if="products?.length == 0" style="padding-bottom: 500px;"></div>
     </section>
     <div v-if="moreToShow || moreThan4" class="text-center mb-5">
-        <button :disabled="!moreToShow"
-            class="mt-5 show-more d-flex align-items-center justify-content-between"
-            @click="showMore()">{{moreToShow ? 'View more' : 'No more products to see' }}
-            <img class="rotate" :class="{'upside-down':!moreToShow}" :src="'/svg/right-arrow.svg'"
-                alt="" />
+        <button :disabled="!moreToShow" class="mt-5 show-more d-flex align-items-center justify-content-between"
+            @click="showMore()">{{ moreToShow? 'View more': 'No more products to see' }}
+            <img class="rotate" :class="{'upside-down':!moreToShow}" :src="'/svg/right-arrow.svg'" alt="" />
         </button>
     </div>
 </template>
@@ -61,7 +59,7 @@ const productsLength = computed(() => {
 /**
  * Restituisce i prodotti filtrati per colore e per il truncateValue (multiplo di 4)
  */
- const filteredProducts = computed(() => {
+const filteredProducts = computed(() => {
     if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateValue.value);
     const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateValue.value) || [];
     return filtered;
@@ -74,7 +72,7 @@ const productsLength = computed(() => {
  * Mostra la modale inviando allo store il prodotto selezionato
  * @param {*} product 
  */
- const showModal = product => {
+const showModal = product => {
     isModalShown.value = !isModalShown.value;
     productModalChosen.value = product;
 }

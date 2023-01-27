@@ -3,22 +3,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, toRefs, watch } from 'vue';
+import { ref, onBeforeMount, toRefs, watch } from 'vue';
 import ProductList from '../components/ProductList.vue';
 import useDownload from '../hooks/useDownload';
-import { links_data } from '../components/data';
 
 const { download, colorUtility } = useDownload();
 const props = defineProps({
   selectedColor: { type: String },
-  api: { type: String, required: true, default: links_data[0].api },
+  api: { type: String, required: true },
 });
 const emits = defineEmits(['onColorsGathered'])
 
 const { selectedColor, api } = toRefs(props);
 const colors = ref([]);
 const jsonData = ref(null);
-onMounted(async () => {
+onBeforeMount(async () => {
   init();
 })
 
