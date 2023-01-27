@@ -125,7 +125,7 @@ const close = (event) => {
     .info {
         position: relative;
         width: 40%;
-        margin-top: 60px;
+        margin-top: 2vw;
         max-width: fit-content;
         margin-right: 60px;
     
