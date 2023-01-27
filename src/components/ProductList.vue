@@ -1,5 +1,5 @@
 <template>
-    <TheModal @close="isModalShown = !isModalShown" v-if="isModalShown">
+    <!-- <TheModal @close="isModalShown = !isModalShown" v-if="isModalShown">
         <template #body>
             {{ productModalChosen }}
         </template>
@@ -22,7 +22,7 @@
                     target="_blank">Add To Cart</a></button>
 
         </template>
-    </TheModal>
+    </TheModal> -->
     <section class="grid">
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />

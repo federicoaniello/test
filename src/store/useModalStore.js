@@ -7,9 +7,9 @@ import { computed, ref } from 'vue';
 // the first argument is a unique id of the store across your application
 const useModalStore = defineStore('modal', () => {
 
-    const modalData = ref([]);
+    const modalData = ref(null);
 
-    const resetModal = () => { modalData.value = []; }
+    const resetModal = () => { modalData.value = null; }
 
     const sendModalData = mD => modalData.value = mD;
 

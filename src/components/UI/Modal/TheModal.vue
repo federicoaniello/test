@@ -1,10 +1,12 @@
 <script setup>
+import { storeToRefs } from 'pinia';
 import useModalStore from '../../../store/useModalStore';
 
 const emits = defineEmits(['close']);
-const md = useModalStore();
+const modalStore = useModalStore();
+const { getModalData } = storeToRefs(modalStore)
 const close = (event) => {
-    md.resetModal();
+    modalStore.resetModal();
     if(event.target.closest('.modal-body')) return
     emits('close');
 }
@@ -12,7 +14,7 @@ const close = (event) => {
 
 <template>
     <Teleport to="body">
-        <main id="modal--definition">
+        <main v-if="getModalData" id="modal--definition">
             <div class="modal-backdrop" @click="close">
                 <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
                     <header id="modalheader" @click="close">
@@ -22,18 +24,18 @@ const close = (event) => {
                     <section class="modal-body" id="modalDescription">
                         <div class="img">
                             <slot name="image">
-                                image placeholder
+                                <img :src="getModalData['image-preview']" :alt="getModalData.name">
                             </slot>
                         </div>
                         <div class="info">
                             <slot name="info">
-                                <h1>dummy text</h1>
-                                <h3 class="mb-5">dummy text</h3>
+                                <h1>{{ getModalData.name }}</h1>
+                                <h3 class="mb-5">{{getModalData.description}}</h3>
                                 <div class="prices">
-                                    <span class="old-price">oldPrice</span>
+                                    <span v-if="getModalData['old-price']" class="old-price">{{getModalData['old-price']}}</span>
                                     <div class="mb-5 d-flex justify-content-start align-items-center">
-                                        <span class="actual-price">price</span>
-                                        <span class="discount">discount</span>
+                                        <span class="actual-price">{{getModalData.price}}</span>
+                                        <span v-if="getModalData.discount" class="discount">{{getModalData.discount}}</span>
                                     </div>
                                 </div>
                                 <button class="add-to-cart">Add To Cart</button>
