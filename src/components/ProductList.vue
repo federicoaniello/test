@@ -1,37 +1,9 @@
 <template>
-    <!-- <TheModal @close="isModalShown = !isModalShown" v-if="isModalShown">
-        <template #body>
-            {{ productModalChosen }}
-        </template>
-        <template #image>
-            <img :src="productModalChosen['image-preview']" alt="">
-        </template>
-        <template #info>
-            <h1>{{ productModalChosen.name }}</h1>
-            <h3 class="mb-5">{{ productModalChosen.description }}</h3>
-            <div class="prices">
-                <span class="old-price" v-if="productModalChosen['old-price']">{{
-                    productModalChosen['old-price']
-                }}</span>
-                <div class="mb-5 d-flex justify-content-start align-items-center">
-                    <span class="actual-price">{{ productModalChosen.price }}</span>
-                    <span class="discount" v-if="productModalChosen.discount">{{ productModalChosen.discount }}</span>
-                </div>
-            </div>
-            <button class="add-to-cart"> <a style="text-decoration: none; color:white" :href="productModalChosen.link"
-                    target="_blank">Add To Cart</a></button>
-
-        </template>
-    </TheModal> -->
     <section class="grid">
         <template v-for="(item, index) in filteredProducts" :key="index">
             <ProductItem @on-product-chosen="showModal($event)" :item="item" />
         </template>
-        <template v-if="!products">
-            <div style="padding-bottom: 500px;">
-
-            </div>
-        </template>
+        <div v-if="products?.length == 0 " style="padding-bottom: 500px;"></div>
     </section>
     <div v-if="moreToShow || moreThan4" class="text-center mb-5">
         <button :disabled="!moreToShow"
@@ -46,7 +18,15 @@
 <script setup>
 import { computed, toRefs, ref, watch } from 'vue';
 import ProductItem from './ProductItem.vue';
-import TheModal from './UI/Modal/TheModal.vue';
+
+
+
+
+
+const isModalShown = ref(false);
+const productModalChosen = ref(null);
+const { products, selectedColor } = toRefs(props);
+const truncateValue = ref(4);
 const props = defineProps({
     products: {
         type: Array,
@@ -58,14 +38,9 @@ const props = defineProps({
     }
 });
 
-const isModalShown = ref(false);
-const productModalChosen = ref(null);
-const showModal = product => {
-    isModalShown.value = !isModalShown.value;
-    productModalChosen.value = product;
-}
-const { products, selectedColor } = toRefs(props);
-const truncateValue = ref(4);
+
+//COMPUTED 
+
 
 const moreToShow = computed(() => {
     console.log("products Length", productsLength.value);
@@ -82,18 +57,36 @@ const productsLength = computed(() => {
     return products?.value?.filter(el => el.color.includes(selectedColor.value)).length
 })
 
-const showMore = () => {
-    truncateValue.value += 4;
-}
 
 /**
  * Restituisce i prodotti filtrati per colore e per il truncateValue (multiplo di 4)
  */
-const filteredProducts = computed(() => {
+ const filteredProducts = computed(() => {
     if (selectedColor.value === null || selectedColor.value === '') return products?.value?.slice(0, truncateValue.value);
     const filtered = products?.value?.filter(el => el.color.includes(selectedColor.value)).slice(0, truncateValue.value) || [];
     return filtered;
 })
+
+
+//FUNCTIONS
+
+/**
+ * Mostra la modale inviando allo store il prodotto selezionato
+ * @param {*} product 
+ */
+ const showModal = product => {
+    isModalShown.value = !isModalShown.value;
+    productModalChosen.value = product;
+}
+
+
+const showMore = () => {
+    truncateValue.value += 4;
+}
+
+
+
+//WATCH 
 
 /**
  * Ogni volta che cambio colore, resetto il truncateValue

@@ -7,13 +7,7 @@
     <div class="container-md">
         <div class="tabs mb-5">
             <div class="tabs--container">
-                <router-link to="/" tag="button">New Arrivals</router-link>
-                <router-link to="/bestseller">
-                    Best Seller
-                </router-link>
-                <router-link to="/mostview">
-                    Most View
-                </router-link>
+                <a :class="{'router-link-active':api === link.api}" @click="setApi(link.api)" v-for="link in links_data" :key="link.name">{{ link.name }}</a>
             </div>
             <select v-model="select_color" @change="onChange($event)">
                 <option selected value="">Filter by color</option>
@@ -22,7 +16,8 @@
                 }}</option>
             </select>
         </div>
-        <router-view :selected-color="select_color" @onColorsGathered="onColorsReceived($event)"></router-view>
+        <DownloadList :api="api" :selected-color="select_color" @onColorsGathered="onColorsReceived($event)">
+        </DownloadList>
     </div>
 
 </template>
@@ -30,11 +25,18 @@
 <script setup>
 import { ref } from 'vue';
 import useDownload from '../hooks/useDownload';
+import DownloadList from '../views/DownloadList.vue';
+import { links_data } from './data';
 
 const select_color = ref(null);
+const api = ref(links_data[0].api);
 const colors = ref([]);
 const onChange = (event) => {
     select_color.value = event.target.value;
+}
+
+const setApi = (api_) => {
+    api.value = api_;
 }
 const { toCapitalized } = useDownload();
 
@@ -73,11 +75,11 @@ const onColorsReceived = (cl) => {
     justify-content: center;
     position: relative;
     align-items: center;
-    
+
     @media (max-width:767px) {
         flex-direction: column;
         align-items: unset;
-    }   
+    }
 
     &--container {
         display: flex;
@@ -88,10 +90,10 @@ const onColorsReceived = (cl) => {
 
         a {
             text-decoration: none;
-color: black;
-font-size: 18px;
-opacity: 0.6;
-font-weight: lighter;
+            color: black;
+            font-size: 18px;
+            opacity: 0.6;
+            font-weight: lighter;
         }
     }
 

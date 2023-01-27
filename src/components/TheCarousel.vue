@@ -35,7 +35,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from "swiper";
-import { swiper_data } from './swiper_data';
+import { swiper_data } from './data';
 // Import Swiper styles
 import 'swiper/scss';
 

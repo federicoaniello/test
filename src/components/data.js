@@ -13,3 +13,17 @@ export const swiper_data = [
     }
 
 ]
+
+export const links_data = [
+    {
+        'name':'New Arrivals',
+        'api': '/data/new_arrivals.json'
+    },
+    {
+        'name':'Best Seller',
+        'api': '/data/best_seller.json'
+    },   {
+        'name':'Most View',
+        'api': '/data/most_view.json'
+    },
+]
