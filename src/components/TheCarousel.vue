@@ -1,162 +1,167 @@
 <template>
-    <swiper :modules="[Navigation]" :slides-per-view="1" :allow-touch-move="true"
-        :prevent-interaction-on-transition="true" :navigation="false" :space-between="0" :centered-slides="false"
-        :loop="true" :breakpoints="{
-            768: {
-                allowTouchMove: false,
-                slidesPerView: 1.2,
-                centeredSlides: true,
-                navigation: {
-                    enabled: true,
-                    nextEl: '.image-swiper-button-next',
-                    prevEl: '.image-swiper-button-prev',
-                }
-            },
-        }" @swiper="onSwiper" @slideChange="onSlideChange">
-        <swiper-slide v-for="(slide, index) in swiper_data" :key="index">
-            <main class="overlay-buttons">
-                <button class="image-swiper-button-prev"></button>
-                <button class="image-swiper-button-next"></button>
-            </main>
-            <section>
-                <div>
-                    <img :src="slide.img" alt="">
-                    <div v-if="slide.titles" class="carousel--wrapper">
-                        <div v-html="slide.titles.first"></div>
-                        <div class="second-div">{{ slide.titles.second }}<span><img class="ml-3"
-                                    :src="'/svg/right-arrow.svg'" alt=""></span></div>
-                    </div>
-                </div>
-            </section>
-        </swiper-slide>
-    </swiper>
+  <swiper
+    :modules="[Navigation]"
+    :slides-per-view="1"
+    :allow-touch-move="true"
+    :prevent-interaction-on-transition="true"
+    :navigation="false"
+    :space-between="0"
+    :centered-slides="false"
+    :loop="true"
+    :breakpoints="{
+      768: {
+        allowTouchMove: false,
+        slidesPerView: 1.2,
+        centeredSlides: true,
+        navigation: {
+          enabled: true,
+          nextEl: '.image-swiper-button-next',
+          prevEl: '.image-swiper-button-prev',
+        },
+      },
+    }"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  >
+    <swiper-slide v-for="(slide, index) in swiper_data" :key="index">
+      <main class="overlay-buttons">
+        <button class="image-swiper-button-prev"></button>
+        <button class="image-swiper-button-next"></button>
+      </main>
+      <section>
+        <div>
+          <img :src="slide.img" alt="" />
+          <div v-if="slide.titles" class="carousel--wrapper">
+            <div v-html="slide.titles.first"></div>
+            <div class="second-div">
+              {{ slide.titles.second
+              }}<span
+                ><img class="ml-3" :src="'/svg/right-arrow.svg'" alt=""
+              /></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper";
-import { swiper_data } from './data';
+import { swiper_data } from "./data";
 // Import Swiper styles
-import 'swiper/scss';
+import "swiper/scss";
 
-const onSwiper = (swiper) => {
-};
+const onSwiper = (swiper) => {};
 const onSlideChange = () => {
-    console.log('slide change');
+  console.log("slide change");
 };
 </script>
 
 <style lang="scss" scoped>
 .swiper-slide {
-    @media (max-width:767px) {
-        width: 100vw;
+  @media (max-width: 767px) {
+    width: 100vw;
 
-        >img {
-            overflow: hidden;
-        }
+    > img {
+      overflow: hidden;
     }
+  }
 
-    &-active {
-         @media (max-width:767px) {
-            z-index: 1; 
-        }
-        .overlay-buttons {
-            display: flex;
-            
-            @media (max-width:767px) {
-                display: none;
-            }
-        }
+  &-active {
+    @media (max-width: 767px) {
+      z-index: 1;
     }
+    .overlay-buttons {
+      display: flex;
+
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
 }
-
 
 .overlay-buttons {
-    display: none;
-    opacity: 0;
-    transition: all 0.3s;
-    left: 0;
-    right: 0;
-    z-index: 5;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 
+  &:hover {
+    opacity: 1;
+  }
 
-    &:hover {
-        opacity: 1;
-    }
+  > button {
+    width: 70px;
+    height: 100px;
+    border: none;
+    padding: 20px;
+    background-color: #00000045;
 
-    >button {
-        width: 70px;
-        height: 100px;
-        border: none;
-        padding: 20px;
-        background-color: #00000045;
-
-        &.image-swiper-button-next,
-        &.image-swiper-button-prev {
-            &::after {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                content: url('/svg/right-arrow-transparent.svg');
-
-            }
-        }
-
-        &.image-swiper-button-prev {
-            transform: rotate(-180deg);
-        }
-    }
-}
-
-
-
-img {
-    @media (min-width:768px) {
-        width: 100%;
-    }
-}
-
-section {
-    position: relative;
-
-    >div {
+    &.image-swiper-button-next,
+    &.image-swiper-button-prev {
+      &::after {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-
-        .second-div {
-            font-size: 18px;
-            font-weight: lighter;
-
-            img {
-                width: 12px;
-            }
-
-            span {
-
-                margin-left: 10px;
-            }
-        }
-
-
-        .carousel--wrapper {
-            position: absolute;
-            color: white;
-            font-size: 54px;
-            text-align: center;
-            font-weight: lighter;
-
-            @media (max-width:767px) {
-                font-size: 34px;
-            }
-        }
-
+        content: url("/svg/right-arrow-transparent.svg");
+      }
     }
+
+    &.image-swiper-button-prev {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+img {
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+section {
+  position: relative;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .second-div {
+      font-size: 18px;
+      font-weight: lighter;
+
+      img {
+        width: 12px;
+      }
+
+      span {
+        margin-left: 10px;
+      }
+    }
+
+    .carousel--wrapper {
+      position: absolute;
+      color: white;
+      font-size: 54px;
+      text-align: center;
+      font-weight: lighter;
+
+      @media (max-width: 767px) {
+        font-size: 34px;
+      }
+    }
+  }
 }
 </style>

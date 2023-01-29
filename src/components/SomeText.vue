@@ -1,60 +1,64 @@
 <template>
-    <section>
-        <div class="main-title my-4 text-center">
-            About <strong>Archiproducts</strong>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit dolorum laboriosam dolores
-                    magni deserunt, corporis illum laudantium repudiandae quas obcaecati temporibus ullam, quisquam
-                    praesentium unde voluptatibus quia voluptates sint enim.</article>
-            </div>
-            <div class="col-12 col-md-6">
-                <article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit dolorum laboriosam dolores
-                    magni deserunt, corporis illum laudantium repudiandae quas obcaecati temporibus ullam, quisquam
-                    praesentium unde voluptatibus quia voluptates sint enim.</article>
-            </div>
-        </div>
-        <div class="subtitle my-4"><strong>Categories</strong></div>
-        <div class="row">
-            <div class="col-12 columns">
-                <ul>
-                    <li>Arredo</li>
-                    <li>Bagno</li>
-                    <li>Cucina</li>
-                    <li>Outdoor</li>
-                    <li>Ufficio</li>
-                    <li>Illuminazione</li>
-                    <li>Wellness</li>
-                    <li>XXXX</li>
-                    <li>DDDDD</li>
-                    <li>DDDDDDD</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <section>
+    <div class="main-title my-4 text-center">
+      About <strong>Archiproducts</strong>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <article>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
+          dolorum laboriosam dolores magni deserunt, corporis illum laudantium
+          repudiandae quas obcaecati temporibus ullam, quisquam praesentium unde
+          voluptatibus quia voluptates sint enim.
+        </article>
+      </div>
+      <div class="col-12 col-md-6">
+        <article>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
+          dolorum laboriosam dolores magni deserunt, corporis illum laudantium
+          repudiandae quas obcaecati temporibus ullam, quisquam praesentium unde
+          voluptatibus quia voluptates sint enim.
+        </article>
+      </div>
+    </div>
+    <div class="subtitle my-4"><strong>Categories</strong></div>
+    <div class="row">
+      <div class="col-12 columns">
+        <ul>
+          <li>Arredo</li>
+          <li>Bagno</li>
+          <li>Cucina</li>
+          <li>Outdoor</li>
+          <li>Ufficio</li>
+          <li>Illuminazione</li>
+          <li>Wellness</li>
+          <li>XXXX</li>
+          <li>DDDDD</li>
+          <li>DDDDDDD</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script setup>
-
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-.main-title{
-    font-size: 32px;
-    @media (max-width:767px) {
-        font-size: 24px;
-    }
+.main-title {
+  font-size: 32px;
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
 }
 section {
-    margin: 50px 15%;
-    @media (max-width:767px) {
-        margin: 10px;
+  margin: 50px 15%;
+  @media (max-width: 767px) {
+    margin: 10px;
+  }
+  .columns {
+    @media (min-width: 768px) {
+      columns: 2;
     }
-    .columns{
-        @media (min-width:768px) {
-            columns: 2;
-        }
-    }
+  }
 }
 </style>
