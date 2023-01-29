@@ -50,7 +50,7 @@
   });
 
   const moreThan4 = computed(() => {
-    return filteredProducts?.value?.length > 3;
+    return filteredProducts?.value?.length > 4;
   });
 
   const productsLength = computed(() => {
