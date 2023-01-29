@@ -45,118 +45,118 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper";
-import { swiper_data } from "./data";
-// Import Swiper styles
-import "swiper/scss";
+  import { Swiper, SwiperSlide } from "swiper/vue";
+  import { Navigation } from "swiper";
+  import { swiper_data } from "./data";
+  // Import Swiper styles
+  import "swiper/scss";
 
-const onSwiper = (swiper) => {};
-const onSlideChange = () => {
-  console.log("slide change");
-};
+  const onSwiper = (swiper) => {};
+  const onSlideChange = () => {
+    console.log("slide change");
+  };
 </script>
 
 <style lang="scss" scoped>
-.swiper-slide {
-  @media (max-width: 767px) {
-    width: 100vw;
+  .swiper-slide {
+    @media (max-width: 767px) {
+      width: 100vw;
 
-    > img {
-      overflow: hidden;
-    }
-  }
-
-  &-active {
-    .overlay-buttons {
-      display: flex;
-
-      @media (max-width: 767px) {
-        display: none;
+      > img {
+        overflow: hidden;
       }
     }
-  }
-}
 
-.img-wrapper {
-  @media (max-width: 767px) {
-    overflow: hidden;
-    width: 100vw;
-  }
-}
-.overlay-buttons {
-  display: none;
-  opacity: 0;
-  transition: all 0.3s;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  > button {
-    width: 70px;
-    height: 100px;
-    border: none;
-    padding: 20px;
-    background-color: #00000045;
-
-    &.image-swiper-button-next,
-    &.image-swiper-button-prev {
-      &::after {
+    &-active {
+      .overlay-buttons {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        content: url("/svg/right-arrow-transparent.svg");
+
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
     }
+  }
 
-    &.image-swiper-button-prev {
-      transform: rotate(-180deg);
+  .img-wrapper {
+    @media (max-width: 767px) {
+      overflow: hidden;
+      width: 100vw;
     }
   }
-}
+  .overlay-buttons {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 
-img {
-  @media (min-width: 768px) {
-    width: 100%;
+    &:hover {
+      opacity: 1;
+    }
+
+    > button {
+      width: 70px;
+      height: 100px;
+      border: none;
+      padding: 20px;
+      background-color: #00000045;
+
+      &.image-swiper-button-next,
+      &.image-swiper-button-prev {
+        &::after {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          content: url("/svg/right-arrow-transparent.svg");
+        }
+      }
+
+      &.image-swiper-button-prev {
+        transform: rotate(-180deg);
+      }
+    }
   }
-}
 
-.carousel--wrapper {
-  position: absolute;
-  color: white;
-  font-size: 54px;
-  text-align: center;
-  font-weight: lighter;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: 767px) {
-    font-size: 34px;
+  img {
+    @media (min-width: 768px) {
+      width: 100%;
+    }
   }
-  .second-div {
-    font-size: 18px;
+
+  .carousel--wrapper {
+    position: absolute;
+    color: white;
+    font-size: 54px;
+    text-align: center;
     font-weight: lighter;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    img {
-      width: 12px;
+    @media (max-width: 767px) {
+      font-size: 34px;
     }
+    .second-div {
+      font-size: 18px;
+      font-weight: lighter;
 
-    span {
-      margin-left: 10px;
+      img {
+        width: 12px;
+      }
+
+      span {
+        margin-left: 10px;
+      }
     }
   }
-}
 </style>

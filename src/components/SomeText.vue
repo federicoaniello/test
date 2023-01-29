@@ -44,21 +44,21 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-.main-title {
-  font-size: 32px;
-  @media (max-width: 767px) {
-    font-size: 24px;
-  }
-}
-section {
-  margin: 50px 15%;
-  @media (max-width: 767px) {
-    margin: 10px;
-  }
-  .columns {
-    @media (min-width: 768px) {
-      columns: 2;
+  .main-title {
+    font-size: 32px;
+    @media (max-width: 767px) {
+      font-size: 24px;
     }
   }
-}
+  section {
+    margin: 50px 15%;
+    @media (max-width: 767px) {
+      margin: 10px;
+    }
+    .columns {
+      @media (min-width: 768px) {
+        columns: 2;
+      }
+    }
+  }
 </style>

@@ -7,12 +7,12 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-header {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  img {
-    width: 180px;
+  header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 180px;
+    }
   }
-}
 </style>
