@@ -27,7 +27,6 @@ watch(api, (_new, _old) => {
 });
 
 const init = async () => {
-  console.log("EXECUTE INIT");
   jsonData.value = await download(api.value);
   colors.value = colorUtility(jsonData);
   emits("onColorsGathered", colors.value);
